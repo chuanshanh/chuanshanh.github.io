@@ -11,10 +11,16 @@
     <content type="html"><![CDATA[<h1 id="大三上两次课程设计复盘"><a href="#大三上两次课程设计复盘" class="headerlink" title="大三上两次课程设计复盘"></a>大三上两次课程设计复盘</h1><h4 id="1-数据库管理系统课设"><a href="#1-数据库管理系统课设" class="headerlink" title="1.数据库管理系统课设"></a>1.数据库管理系统课设</h4><ul><li><strong>Situation：</strong> 情景。 事情是在什么情况下发生的？<ul><li>6个人的小组，需要完成一个数据库管理系统，包括文件结构存储，实现DDL,DML语句。</li></ul></li><li><strong>Task：</strong> 任务。你的任务是什么？<ul><li>担任组长</li><li>挑选合适的项目作为开发基础</li><li>对任务进行分工，包括从开发任务到汇报文档</li></ul></li><li><strong>Action：</strong> 行动。你做了什么？<ul><li>刚开始选择MYDB作为项目基础，但是其实现更偏原理性，可用性不强，且理解难度高，故舍弃</li><li>理解现有项目的实现，和组员讨论在此基础上要扩充的内容</li><li>合理分配任务，自己选择最难的select语句实现</li><li>帮助组员解决技术卡克点</li><li>制作ppt,向老师进行汇报答辩</li></ul></li><li><strong>Result：</strong> 结果。最终的结果怎样？<ul><li>既定的任务实现了90%，没有实现的是预先没有直接分配的那个任务</li><li>实现了前端界面和所有基本语句的支持，项目比较完整</li><li>答辩汇报也比较顺利，问答环节每个人回答到位</li></ul></li><li><strong>收获：</strong><ul><li>此次的专业技能提升主要在于编写select语句上，大力出奇迹的感觉，第一次真正用编码解决实际问题，虽然其实现性较为有限</li><li>软实力提升了不少，包括和组员共同能力，对整个项目进度的掌控能力，以及最后汇报的表达能力，均得到了提升</li></ul></li></ul><h4 id="2-软件文档-人脸识别Android-app课设"><a href="#2-软件文档-人脸识别Android-app课设" class="headerlink" title="2.软件文档-人脸识别Android app课设"></a>2.软件文档-人脸识别Android app课设</h4><ul><li><strong>Situation：</strong> 情景。 事情是在什么情况下发生的？<ul><li>需要开发一个系统实现人脸识别考勤签到，教师学生信息管理以及权限管理系统</li></ul></li><li><strong>Task：</strong> 任务。你的任务是什么？<ul><li>协助组长，帮助其推进项目</li></ul></li><li><strong>Action：</strong> 行动。你做了什么？<ul><li>最开始选择基础项目，敲定使用一个功能比较全的app项目</li><li>最近项目环境配置，一直不成功，在网上联系技术专家解决</li><li>最后项目部署上线，协助组长</li><li>一些文档编写，包括ER图的绘制</li></ul></li><li><strong>Result：</strong> 结果。最终的结果怎样？<ul><li>是唯一一个把app做出来的小组 ，其他都是网页版的实现，实现部分拿到了满分</li></ul></li><li><strong>收获：</strong><ul><li>专业技术：ER图建模，对关系型数据库建模的逻辑性有了更深的理解；Android项目的基本认识；项目部署上线流程有了大致的了解。</li><li>软能力：<ul><li>对一个更大项目的整体实现的认识，从各种文档的编写，前期需求分析，到ER图建模，项目选型，技术实现，部署上线，有了一个更加直观的体验；</li><li>学习到一些组织一个8人小组的经验</li></ul></li></ul></li></ul>]]></content>
     
     
+    <categories>
+      
+      <category>项目</category>
+      
+    </categories>
+    
     
     <tags>
       
-      <tag>项目</tag>
+      <tag>学校项目</tag>
       
     </tags>
     
