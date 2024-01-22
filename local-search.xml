@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>SQL的JOIN连接多表查询</title>
+    <link href="/2024/01/22/SQL%E7%9A%84JOIN%E8%BF%9E%E6%8E%A5%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/"/>
+    <url>/2024/01/22/SQL%E7%9A%84JOIN%E8%BF%9E%E6%8E%A5%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</url>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h3><p>数据库上课时这一部分没有听进去，前几天面试又问到了SQL，现在才发现答得简直是乱七八糟，那就趁现在好好整理一下吧，感谢面试官的包容，I really appreciate that！</p><hr><h3 id="1-所有的JOINS概览"><a href="#1-所有的JOINS概览" class="headerlink" title="1.所有的JOINS概览"></a>1.所有的JOINS概览</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span><br><span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span><br><span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span><br><span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span><br><span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> EXCLUDING <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span><br><span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> EXCLUDING <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span><br><span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> EXCLUDING <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span><br></code></pre></td></tr></table></figure><h3 id="2-Inner-JOIN内连接"><a href="#2-Inner-JOIN内连接" class="headerlink" title="2.Inner JOIN内连接"></a>2.Inner JOIN内连接</h3><img src="/2024/01/22/SQL%E7%9A%84JOIN%E8%BF%9E%E6%8E%A5%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/10.png" class="" title="内连接">]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SpringBoot-demo-HelloWorld</title>
     <link href="/2024/01/21/SpringBoot-demo-HelloWorld/"/>
     <url>/2024/01/21/SpringBoot-demo-HelloWorld/</url>
