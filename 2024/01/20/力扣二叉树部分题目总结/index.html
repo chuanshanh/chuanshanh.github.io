@@ -24,7 +24,7 @@
 <meta property="og:description" content="二叉树前言：​	对于树一直是有一种惧怕心理的，题目做的不够多，有思路都不知道怎么实现，希望通过这次二叉树的专项练习，可以入个门吧~~~：）  1.二叉树展开为链表 描述：把一棵二叉树展开为一条链表，链表的顺序就是二叉树的先序遍历顺序，链表实际上就是特殊的二叉树 总体说明：	 在原先基础上建立链表 迭代，划分为三大模块再处理里面的内容（解法一） 先序遍历的逆过程，递归（解法二） 栈保存左右子树信息（">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-20T15:01:29.000Z">
-<meta property="article:modified_time" content="2024-01-22T14:08:49.363Z">
+<meta property="article:modified_time" content="2024-01-23T13:20:01.065Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="二叉树">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          3.3k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          22 分钟
+          28 分钟
         
       </span>
     
@@ -470,6 +470,32 @@
 
 <ul>
 <li>总结：刚开始没有想到有可能右子树不存在，看到的是左子树的节点。所以需要维护一个深度，这部分有点思路但不太会实现，实际上就是通过一个全局变量来找到该层出现的第一个节点。</li>
+</ul>
+<h3 id="8-二叉树中的最大路径和"><a href="#8-二叉树中的最大路径和" class="headerlink" title="8.二叉树中的最大路径和"></a>8.二叉树中的最大路径和</h3><ul>
+<li>描述：二叉树中的 <strong>路径</strong> 被定义为一条节点序列，序列中每对相邻节点之间都存在一条边。同一个节点在一条路径序列中 <strong>至多出现一次</strong> 。该路径 <strong>至少包含一个</strong> 节点，且不一定经过根节点。<strong>路径和</strong> 是路径中各节点值的总和。给你一个二叉树的根节点 <code>root</code> ，返回其 <strong>最大路径和</strong> 。</li>
+</ul>
+<h4 id="解法一：-7"><a href="#解法一：-7" class="headerlink" title="解法一："></a>解法一：</h4><ul>
+<li>思路：首先，这是个可递归的问题，对于每个节点，可以<strong>递归</strong>找到<strong>以它为根节点的且向下的路径和的最大值</strong>，那么对于整体的二叉树的最大路径和，可以在递归过程中，不断比较<strong>节点的值加上其左右子节点的最大路径和</strong>，最终找到最大路径和。由于存在负数，要和0比较一下。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">maxSum</span> <span class="hljs-operator">=</span> Integer.MIN_VALUE;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxPathSum</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>        maxGain(root);<br>        <span class="hljs-keyword">return</span> maxSum;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxGain</span><span class="hljs-params">(TreeNode node)</span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">leftGain</span> <span class="hljs-operator">=</span> Math.max(<span class="hljs-number">0</span>, maxGain(node.left));<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rightGain</span> <span class="hljs-operator">=</span> Math.max(<span class="hljs-number">0</span>,maxGain(node.right));<br>        maxSum = Math.max(maxSum, node.val + leftGain + rightGain); <span class="hljs-comment">//递归完后就可以把该节点作为候选节点</span><br>        <span class="hljs-keyword">return</span> node.val + Math.max(leftGain, rightGain);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：感觉以前好像做过，但是对于递归的熟悉还是不够，相当于把最终的路径按最上面的节点进行拆分为三个部分（当前节点，左子树的一条最大路径，右子树的一条最大路径），那么问题就转变为递归每个节点的最大贡献值。通过<strong>拆分</strong>把复杂问题简单化。</li>
+</ul>
+<h3 id="9、二叉树的直径"><a href="#9、二叉树的直径" class="headerlink" title="9、二叉树的直径"></a>9、二叉树的直径</h3><ul>
+<li>描述：给你一棵二叉树的根节点，返回该树的 <strong>直径</strong> 。二叉树的 <strong>直径</strong> 是指树中任意两个节点之间最长路径的 <strong>长度</strong> 。这条路径可能经过也可能不经过根节点 <code>root</code> 。两节点之间路径的 <strong>长度</strong> 由它们之间边数表示。</li>
+</ul>
+<h4 id="解法一：-8"><a href="#解法一：-8" class="headerlink" title="解法一："></a>解法一：</h4><ul>
+<li><p>思路：直径可以不通过根节点，即答案的最高点可以不是根节点，那么ans就需要在这个过程中不断比较产生。递归得到以当前节点为根的左右两边的最大长度，尝试更新ans，并选取较大的一个返回给上层，这一点跟题目8很像。</p>
+</li>
+<li><p>代码：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">diameterOfBinaryTree</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>        dfs(root);<br>        <span class="hljs-keyword">return</span> ans - <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(TreeNode root)</span>&#123;<br>        <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> dfs(root.left) + <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> dfs(root.right) + <span class="hljs-number">1</span>;<br>        ans = Math.max(ans, left + right -<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> Math.max(left, right);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：慢慢自己调出了ac代码，这个过程还是很重要的，对于一些细碎的分类会更加清楚，比如需不需要全局变量，dfs需不需要返回值，+1-1这些判断，自己思考后会很清晰。</li>
 </ul>
 
                 
