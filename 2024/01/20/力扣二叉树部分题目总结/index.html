@@ -24,7 +24,7 @@
 <meta property="og:description" content="二叉树前言：​	对于树一直是有一种惧怕心理的，题目做的不够多，有思路都不知道怎么实现，希望通过这次二叉树的专项练习，可以入个门吧~~~：）  1.二叉树展开为链表 描述：把一棵二叉树展开为一条链表，链表的顺序就是二叉树的先序遍历顺序，链表实际上就是特殊的二叉树 总体说明：	 在原先基础上建立链表 迭代，划分为三大模块再处理里面的内容（解法一） 先序遍历的逆过程，递归（解法二） 栈保存左右子树信息（">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-20T15:01:29.000Z">
-<meta property="article:modified_time" content="2024-02-02T05:55:27.270Z">
+<meta property="article:modified_time" content="2024-02-06T09:26:16.714Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="二叉树">
 <meta name="twitter:card" content="summary_large_image">
@@ -409,7 +409,7 @@
 <li>总结：很精彩的递归，尤其是return root 这里，空的会向上传，直到有一个left和right都恰好是非空。</li>
 </ul>
 <h4 id="解法二："><a href="#解法二：" class="headerlink" title="解法二："></a>解法二：</h4><ul>
-<li><p>思路：先提前dfs整棵树，确定所有的父节点，然后找出p的父节点这条路，再找q的所有祖先，一旦之前找到过，就是最近的公共祖先</p>
+<li><p>思路：先提前dfs整棵树，确定所有的父节点，然后找出p的父节点这条路，再找q的所有祖先，一旦之前找到过，就是最近的公共祖先。<strong>另外，题目说明所有 <code>Node.val</code> <code>互不相同</code> ，故可以Map存储节点的值。</strong></p>
 </li>
 <li><p>代码：</p>
 </li>
