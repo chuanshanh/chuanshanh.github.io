@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/02/02/%E5%8A%9B%E6%89%A3%E9%93%BE%E8%A1%A8%E9%83%A8%E5%88%86%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/00.png">
 <meta property="article:published_time" content="2024-02-02T05:32:12.000Z">
-<meta property="article:modified_time" content="2024-02-18T12:51:15.030Z">
+<meta property="article:modified_time" content="2024-02-25T05:12:35.125Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          3.7k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          24 分钟
+          32 分钟
         
       </span>
     
@@ -467,6 +467,48 @@
 
 <ul>
 <li>总结：这是一道很棒的题目，深入熟悉了两种做法，特别是两种优秀的底层思路，归并和自底向上。自底向上的思路说起来简单，但是操作起来常常有很多细节需要反复推敲，熟能生巧叭~</li>
+</ul>
+<h3 id="9-两两交换链表中的节点"><a href="#9-两两交换链表中的节点" class="headerlink" title="9.两两交换链表中的节点"></a>9.两两交换链表中的节点</h3><ul>
+<li>描述：给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）</li>
+</ul>
+<h4 id="解法一：-8"><a href="#解法一：-8" class="headerlink" title="解法一："></a>解法一：</h4><ul>
+<li>思路：本质就是交换链表中的两个节点，然后采取递归的方式不断往后走。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">swapPairs</span><span class="hljs-params">(ListNode head)</span> &#123;<br>        <span class="hljs-keyword">if</span>(head == <span class="hljs-literal">null</span> || head.next == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> head;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">newHead</span> <span class="hljs-operator">=</span> head.next;<br>        head.next = newHead.next;<br>        newHead.next = head;<br>        head.next = swapPairs(head.next);<br>        <span class="hljs-keyword">return</span> newHead;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：自己写出来的一道题目，很棒，刚开始swapPairs里写成了head.next.next，然后根据输出debug解决了问题，很不错~</li>
+</ul>
+<h3 id="10-随机链表的复制"><a href="#10-随机链表的复制" class="headerlink" title="10.随机链表的复制"></a>10.随机链表的复制</h3><ul>
+<li>描述：给你一个长度为 <code>n</code> 的链表，每个节点包含一个额外增加的随机指针 <code>random</code> ，该指针可以指向链表中的任何节点或空节点。构造这个链表的 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B7%B1%E6%8B%B7%E8%B4%9D/22785317?fr=aladdin">深拷贝</a><strong>。 深拷贝应该正好由 <code>n</code> 个 <strong>全新</strong> 节点组成，其中每个新节点的值都设为其对应的原节点的值。新节点的 <code>next</code> 指针和 <code>random</code> 指针也都应指向复制链表中的新节点，并使原链表和复制链表中的这些指针能够表示相同的链表状态。</strong>复制链表中的指针都不应指向原链表中的节点</strong> 。</li>
+</ul>
+<h4 id="解法一：-9"><a href="#解法一：-9" class="headerlink" title="解法一："></a>解法一：</h4><ul>
+<li>思路：由于random指针可能指向后面的未创建的节点，所以采用<strong>回溯+哈希表</strong>，直接往下递归，把对应的节点返回来即可。时间和空间复杂度都是O(N)。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    Map&lt;Node, Node&gt; cacheNode = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>    <span class="hljs-keyword">public</span> Node <span class="hljs-title function_">copyRandomList</span><span class="hljs-params">(Node head)</span> &#123;<br>        <span class="hljs-keyword">if</span>(head == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">if</span>(!cacheNode.containsKey(head))&#123;<br>            <span class="hljs-type">Node</span> <span class="hljs-variable">newNode</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(head.val);<br>            cacheNode.put(head, newNode);<br>            newNode.next = copyRandomList(head.next);<br>            newNode.random = copyRandomList(head.random);<br>        &#125;<br>        <span class="hljs-keyword">return</span> cacheNode.get(head);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：原来<strong>递归还可以用于回溯</strong>，其实好像递归的本质就有点回溯的意味，那么这道题刚好应用了这一本质，再结合哈希避免了节点的重复复制。</li>
+</ul>
+<h4 id="解法二：-5"><a href="#解法二：-5" class="headerlink" title="解法二："></a>解法二：</h4><ul>
+<li>思路：采取<strong>迭代</strong>的方法，先把每个节点拆分为两个一样的节点，前面一个节点作为原节点，后面一个节点作为复制节点，遍历把后面节点的random指针指向对应的复制节点，最后再<strong>拆分链表</strong>。时间复杂度为O（N）,空间复杂度为O（1）。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> Node <span class="hljs-title function_">copyRandomList</span><span class="hljs-params">(Node head)</span> &#123;<br>        <span class="hljs-keyword">if</span>(head == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">Node</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> head; node != <span class="hljs-literal">null</span>; node = node.next.next)&#123;<br>            <span class="hljs-type">Node</span> <span class="hljs-variable">newNode</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(node.val);<br>            newNode.next = node.next;<br>            node.next = newNode;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">Node</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> head; node != <span class="hljs-literal">null</span>; node = node.next.next)&#123;<br>            <span class="hljs-type">Node</span> <span class="hljs-variable">newNode</span> <span class="hljs-operator">=</span> node.next;<br>            newNode.random = (node.random != <span class="hljs-literal">null</span>) ? node.random.next : <span class="hljs-literal">null</span>;<br>        &#125;<br>        <span class="hljs-type">Node</span> <span class="hljs-variable">newHead</span> <span class="hljs-operator">=</span> head.next;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">Node</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> head; node != <span class="hljs-literal">null</span>; node = node.next)&#123;<br>            <span class="hljs-type">Node</span> <span class="hljs-variable">newNode</span> <span class="hljs-operator">=</span> node.next;<br>            node.next = node.next.next;<br>            newNode.next = (newNode.next != <span class="hljs-literal">null</span>) ? newNode.next.next : <span class="hljs-literal">null</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> newHead;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：由于链表的特性采取复制节点的想法，那么next指针的复制就很自然，random指针的复制也很方便，很巧妙的方法~</li>
+</ul>
+<h4 id="解法三：-1"><a href="#解法三：-1" class="headerlink" title="解法三："></a>解法三：</h4><ul>
+<li>思路：直接先忽略random指针复制出链表的结构，然后再针对random指针进行复制即可。其中利用<strong>map</strong>键值对来维护节点和它的复制节点的关系。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> Node <span class="hljs-title function_">copyRandomList</span><span class="hljs-params">(Node head)</span> &#123;<br>        <span class="hljs-keyword">if</span>(head == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-type">Node</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> head;<br>        Map&lt;Node, Node&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        <span class="hljs-keyword">while</span>(cur != <span class="hljs-literal">null</span>)&#123;<br>            map.put(cur, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(cur.val));<br>            cur = cur.next;<br>        &#125;<br>        cur = head;<br>        <span class="hljs-keyword">while</span>(cur != <span class="hljs-literal">null</span>)&#123;<br>            map.get(cur).next = map.get(cur.next);<br>            map.get(cur).random = map.get(cur.random);<br>            cur = cur.next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> map.get(head);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：超级简单易懂，巧妙地采取了Map来维护，非常巧妙！</li>
 </ul>
 
                 
