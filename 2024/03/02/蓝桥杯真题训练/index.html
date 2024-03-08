@@ -16,15 +16,15 @@
   <meta name="author" content="jhxxxxx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="2023年省赛题目A幸运数： 描述：小蓝认为如果一个数含有偶数个数位，并且前面一半的数位之和等于后面一半的数位之和，则这个数是他的幸运数字。例如 2314 是一个幸运数字，因为它有 44 个数位，并且 2+3&#x3D;1+4。现在请你帮他计算从 1 至 100000000 之间共有多少个不同的幸运数字。  思路：10^8刚好是上界，可以直接进行模拟运算，首先计算数的位数，如果是奇数直接跳过，是偶">
+    <meta name="description" content="2023年省赛题目A组A幸运数： 描述：小蓝认为如果一个数含有偶数个数位，并且前面一半的数位之和等于后面一半的数位之和，则这个数是他的幸运数字。例如 2314 是一个幸运数字，因为它有 44 个数位，并且 2+3&#x3D;1+4。现在请你帮他计算从 1 至 100000000 之间共有多少个不同的幸运数字。  思路：10^8刚好是上界，可以直接进行模拟运算，首先计算数的位数，如果是奇数直接跳过，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蓝桥杯真题训练-正在更新中~">
 <meta property="og:url" content="http://example.com/2024/03/02/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%9F%E9%A2%98%E8%AE%AD%E7%BB%83/index.html">
 <meta property="og:site_name" content="jhxxxxx">
-<meta property="og:description" content="2023年省赛题目A幸运数： 描述：小蓝认为如果一个数含有偶数个数位，并且前面一半的数位之和等于后面一半的数位之和，则这个数是他的幸运数字。例如 2314 是一个幸运数字，因为它有 44 个数位，并且 2+3&#x3D;1+4。现在请你帮他计算从 1 至 100000000 之间共有多少个不同的幸运数字。  思路：10^8刚好是上界，可以直接进行模拟运算，首先计算数的位数，如果是奇数直接跳过，是偶">
+<meta property="og:description" content="2023年省赛题目A组A幸运数： 描述：小蓝认为如果一个数含有偶数个数位，并且前面一半的数位之和等于后面一半的数位之和，则这个数是他的幸运数字。例如 2314 是一个幸运数字，因为它有 44 个数位，并且 2+3&#x3D;1+4。现在请你帮他计算从 1 至 100000000 之间共有多少个不同的幸运数字。  思路：10^8刚好是上界，可以直接进行模拟运算，首先计算数的位数，如果是奇数直接跳过，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-02T02:21:12.000Z">
-<meta property="article:modified_time" content="2024-03-08T11:19:17.402Z">
+<meta property="article:modified_time" content="2024-03-08T11:44:07.394Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.2k 字
+          3.3k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          27 分钟
+          28 分钟
         
       </span>
     
@@ -310,7 +310,7 @@
             
               <div class="markdown-body">
                 
-                <h2 id="2023年省赛题目"><a href="#2023年省赛题目" class="headerlink" title="2023年省赛题目"></a>2023年省赛题目</h2><h3 id="A幸运数："><a href="#A幸运数：" class="headerlink" title="A幸运数："></a>A幸运数：</h3><ul>
+                <h2 id="2023年省赛题目A组"><a href="#2023年省赛题目A组" class="headerlink" title="2023年省赛题目A组"></a>2023年省赛题目A组</h2><h3 id="A幸运数："><a href="#A幸运数：" class="headerlink" title="A幸运数："></a>A幸运数：</h3><ul>
 <li><p>描述：小蓝认为如果一个数含有偶数个数位，并且前面一半的数位之和等于后面一半的数位之和，则这个数是他的幸运数字。例如 2314 是一个幸运数字，因为它有 44 个数位，并且 2+3&#x3D;1+4。现在请你帮他计算从 1 至 100000000 之间共有多少个不同的幸运数字。</p>
 </li>
 <li><p>思路：10^8刚好是上界，可以直接进行模拟运算，首先计算数的位数，如果是奇数直接跳过，是偶数的话，再计算平分两部分的数值累积，如果相等计入答案。</p>
@@ -428,6 +428,19 @@
 
 <ul>
 <li>总结：很厉害的写法，尤其是sum的增加使得原先需要遍历所有的cnt判断颜色个数是否一致可以O(1)的时间复杂度判断出来，而对sum的递推是直接内嵌在dfs里的，太厉害了。还有unordered_map对于三维数组的应用也非常熟练，太厉害了！而且这个dfs也没有一般的终结条件，即叶节点，相当于隐式的方式了。很棒的一道题，考场上要是能模拟出这种暴力真的就太棒了！~</li>
+</ul>
+<h2 id="2023年省赛题目B组"><a href="#2023年省赛题目B组" class="headerlink" title="2023年省赛题目B组"></a>2023年省赛题目B组</h2><h3 id="炼冶金属："><a href="#炼冶金属：" class="headerlink" title="炼冶金属："></a>炼冶金属：</h3><ul>
+<li><p>描述：根据这 <em>N</em> 条冶炼记录，请你推测出转换率 <em>V</em> 的最小值和最大值分别可能是多少，题目保证评测数据不存在无解的情况。</p>
+</li>
+<li><p>思路：根据情况很顺利地推导出逻辑，代码实现即可</p>
+</li>
+<li><p>代码：</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> INF = <span class="hljs-number">0x7fffffff</span>;<br><span class="hljs-type">int</span> n, A, B, l = -INF, r = INF; <br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;n;<br>	<span class="hljs-keyword">while</span>(n--)&#123;<br>		cin&gt;&gt;A&gt;&gt;B;<br>		l = <span class="hljs-built_in">max</span>(l, A/(B + <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>);<br>		r = <span class="hljs-built_in">min</span>(r, A/B);<br>	&#125;<br>	cout&lt;&lt;l&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;r&lt;&lt;endl;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：并不难，主要是INF这里掌握不足，需要记住。</li>
 </ul>
 
                 
