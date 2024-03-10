@@ -24,7 +24,7 @@
 <meta property="og:description" content="2023年省赛题目A组A幸运数： 描述：小蓝认为如果一个数含有偶数个数位，并且前面一半的数位之和等于后面一半的数位之和，则这个数是他的幸运数字。例如 2314 是一个幸运数字，因为它有 44 个数位，并且 2+3&#x3D;1+4。现在请你帮他计算从 1 至 100000000 之间共有多少个不同的幸运数字。  思路：10^8刚好是上界，可以直接进行模拟运算，首先计算数的位数，如果是奇数直接跳过，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-02T02:21:12.000Z">
-<meta property="article:modified_time" content="2024-03-09T02:23:47.061Z">
+<meta property="article:modified_time" content="2024-03-10T05:17:16.767Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          4.5k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          31 分钟
+          38 分钟
         
       </span>
     
@@ -451,6 +451,36 @@
 
 <ul>
 <li>总结：for遍历dfs这种形式其实比较常见，注意要恢复现场，多多考虑清楚细节问题。</li>
+</ul>
+<h3 id="接龙数列："><a href="#接龙数列：" class="headerlink" title="接龙数列："></a>接龙数列：</h3><ul>
+<li>描述：给定一个数组，判断最少去掉多少个元素可以使剩余数列为接龙数列</li>
+<li>思路：最少不太好判断，可以转化一下思路，把解决的问题变为在原数组找最长的接龙子序列，那么就是一个线性dp问题了，把每个数字都当作字符串存储更容易使用。dp[c]表示以c为结尾的最长接龙子序列的长度，那么从头开始遍历序列,当前的字符串是s, dp[s[m-1] - 48] &#x3D; max(dp[s[m-1] - 48], dp[s[0] - 48] + 1)。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>string s;<br><span class="hljs-type">int</span> dp[<span class="hljs-number">15</span>], ans, n; <br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>		cin&gt;&gt;s;<br>		<span class="hljs-type">int</span> m = s.<span class="hljs-built_in">length</span>();<br>		dp[s[m<span class="hljs-number">-1</span>] - <span class="hljs-number">48</span>] = <span class="hljs-built_in">max</span>(dp[s[m<span class="hljs-number">-1</span>] - <span class="hljs-number">48</span>], dp[s[<span class="hljs-number">0</span>] - <span class="hljs-number">48</span>] + <span class="hljs-number">1</span>);<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">9</span>; i++)&#123;<br>		ans = <span class="hljs-built_in">max</span>(ans, dp[i]);<br>	&#125;<br>	cout&lt;&lt;n-ans&lt;&lt;endl;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：还是觉得很神奇的线性DP,从头开始遍历竟然就可以逐步解决子序列的求解，太简洁有力了~</li>
+</ul>
+<h3 id="抓娃娃："><a href="#抓娃娃：" class="headerlink" title="抓娃娃："></a>抓娃娃：</h3><ul>
+<li>描述：套圈，给取多个区间，多条线段，线段覆盖区间一半以上算是套中，问每个线段可以套中几个</li>
+<li>思路：套中其实相等于区间的中点在线段之内，那么求出所有的区间中点再前缀和一下，就可以O(1)求出套中的区间个数了。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1000050</span>;<br><span class="hljs-type">int</span> n, m, mp[N]; <br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;m;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>,l,r; i &lt;= n; i++)&#123;<br>		cin&gt;&gt;l&gt;&gt;r;<br>		mp[l+r]++;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; i++)&#123;<br>		mp[i] = mp[i<span class="hljs-number">-1</span>] + mp[i];<br>	&#125;<br>	<span class="hljs-type">int</span> l, r;<br>	<span class="hljs-keyword">while</span>(m--)&#123;<br>		cin&gt;&gt;l&gt;&gt;r;<br>		l *= <span class="hljs-number">2</span>;<br>		r *= <span class="hljs-number">2</span>;<br>		cout&lt;&lt;mp[r] - mp[l<span class="hljs-number">-1</span>]&lt;&lt;endl;  <br>	&#125;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：转化一下思路即可，注意求中点可能出现小数，最好都乘2来避免，这点已经不止一次遇到了。</li>
+</ul>
+<h3 id="子串简写："><a href="#子串简写：" class="headerlink" title="子串简写："></a>子串简写：</h3><ul>
+<li>描述：子串Kubernetes可以简写成 K8s，我们规定长度大于等于 K 的字符串都可以采用这种简写方法。长度小于 K 的字符串不允许使用这种简写。给定一个字符串 S 和两个字符 c1 和 c2。请你计算 S 有多少个以 c1 开头 c2 结尾的子串可以采用这种简写？</li>
+<li>思路：其实就是找对应的c1,c2组数，然后距离要大于等于k,为了降低时间复杂度，对c1的位置进行存储，然后找出最大的符合当前c2位置要求的位置。时间复杂度应当是NlogN。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><span class="hljs-type">int</span> k, ans;<br>string s;<br><span class="hljs-type">char</span> c1,c2;<br>vector&lt;<span class="hljs-type">int</span>&gt; pc1;<br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;k&gt;&gt;s&gt;&gt;c1&gt;&gt;c2;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">size</span>(); i++)&#123;<br>		<span class="hljs-keyword">if</span>(s[i] == c1)&#123;<br>			pc1.<span class="hljs-built_in">push_back</span>(i);<br>		&#125;<br>		<span class="hljs-keyword">if</span>(s[i] == c2)&#123;<br>			<span class="hljs-keyword">if</span>(i - k + <span class="hljs-number">1</span> &lt; <span class="hljs-number">0</span> || pc1.<span class="hljs-built_in">size</span>() == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br>			<span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = pc1.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">while</span>(l &lt; r)&#123;<br>				<span class="hljs-type">int</span> mid = (l + r + <span class="hljs-number">1</span>)&gt;&gt;<span class="hljs-number">1</span>;<br>				<span class="hljs-keyword">if</span>(pc1[mid] &lt;= i - k + <span class="hljs-number">1</span>) l = mid;<br>				<span class="hljs-keyword">else</span> r = mid - <span class="hljs-number">1</span>;<br>			&#125;<br>			<span class="hljs-keyword">if</span>(pc1[l] &lt;= i - k + <span class="hljs-number">1</span>)&#123;<br>				ans += l + <span class="hljs-number">1</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>	cout&lt;&lt;ans&lt;&lt;endl;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：通过二分很有效地降低了时间复杂度，而且很简洁明了。关于二分的题目还是要重视，其要求就是存在一个临界点，找出这个临界点。另外，发现题目必须开long long才能过。所以比赛的时候不管三七二十一，最好都写上#define int long long，这样子会避免失去不必要失去的分数。</li>
 </ul>
 
                 
