@@ -24,9 +24,9 @@
 <meta property="og:description" content="2023年省赛题目B组炼冶金属： 描述：根据这 N 条冶炼记录，请你推测出转换率 V 的最小值和最大值分别可能是多少，题目保证评测数据不存在无解的情况。  思路：根据情况很顺利地推导出逻辑，代码实现即可  代码：   12345678910111213141516#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;const int INF &#x3D; 0x7">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-11T04:12:14.000Z">
-<meta property="article:modified_time" content="2024-03-11T04:13:15.234Z">
+<meta property="article:modified_time" content="2024-03-15T07:41:19.397Z">
 <meta property="article:author" content="jhxxxxx">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="蓝桥杯">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.9k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          19 分钟
+          25 分钟
         
       </span>
     
@@ -383,6 +383,29 @@
 <ul>
 <li>总结：是一种暴力解法，关键在于树上两点距离的dfs求解，其实这类题目的套路基本已经很熟悉了，还是要勇敢去做，去尝试。这是一道很棒的练手题~</li>
 </ul>
+<h3 id="整数删除："><a href="#整数删除：" class="headerlink" title="整数删除："></a>整数删除：</h3><ul>
+<li>描述：给定一个长度为 N 的整数数列：A1, A2, … , AN。你要重复以下操作 K 次：<br>每次选择数列中最小的整数（如果最小值不止一个，选择最靠前的），将其删除。<br>并把与它相邻的整数加上被删除的数值。<br>输出 K 次操作后的序列</li>
+</ul>
+<h4 id="解法一：暴力模拟"><a href="#解法一：暴力模拟" class="headerlink" title="解法一：暴力模拟"></a>解法一：暴力模拟</h4><ul>
+<li>思路：直接对过程进行模拟，能拿到20%的分数，主要是相邻的数相加这里要考虑存在删除了的数，再加两个循环遍历。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> INF 0x3f3f3f3f3f3f3f</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">5e5</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n, k, a[N], vis[N];<br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;k;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>		cin&gt;&gt;a[i];<br>	&#125;<br>	<span class="hljs-keyword">while</span>(k--)&#123;<br>		<span class="hljs-type">int</span> minn = INF, pos = <span class="hljs-number">-1</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>			<span class="hljs-keyword">if</span>(vis[i]==<span class="hljs-number">0</span> &amp;&amp; a[i] &lt; minn)&#123;<br>				minn = a[i];<br>				pos = i;<br>			&#125;<br>		&#125;<br>		vis[pos] = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = pos - <span class="hljs-number">1</span>; j &gt;= <span class="hljs-number">0</span>; j --)<br>		&#123;<br>			<span class="hljs-keyword">if</span>(!vis[j])<br>			&#123;<br>				a[j] += minn;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br><br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = pos + <span class="hljs-number">1</span>; j &lt; n; j ++)<br>		&#123;<br>			<span class="hljs-keyword">if</span>(!vis[j])<br>			&#123;<br>				a[j] += minn;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>		<span class="hljs-keyword">if</span>(vis[i] == <span class="hljs-number">0</span>)&#123;<br>			cout&lt;&lt;a[i]&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>		&#125;<br>	&#125; <br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：能直接模拟出来快速拿到部分分也是个不错的选择，至少是个保底，当然能正确模拟也是很重要的。</li>
+</ul>
+<h4 id="解法二：链表-优先队列"><a href="#解法二：链表-优先队列" class="headerlink" title="解法二：链表+优先队列"></a>解法二：链表+优先队列</h4><ul>
+<li><p>思路：暴力解法的时间复杂度主要体现在寻找最小值以及找未被删除的相邻节点，可以使用小根堆（优先队列）降低寻找最小值的时间复杂度为O(logN)，再用双向队列（两个数组）维护相邻节点。</p>
+</li>
+<li><p>代码：</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; pii;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">5e5</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n, k, a[N], st[N], l[N], r[N]; <br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;k;<br>	priority_queue&lt;pii, vector&lt;pii&gt;, greater&lt;pii&gt;&gt; q;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>		cin&gt;&gt;a[i];<br>		q.<span class="hljs-built_in">push</span>(&#123;a[i], i&#125;);<br>		st[i] = a[i];<br>		l[i] = i - <span class="hljs-number">1</span>;<br>		r[i] = i + <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">if</span>(i == n - <span class="hljs-number">1</span>) r[i] = <span class="hljs-number">-1</span>;<br>	&#125;<br>	<br>	<span class="hljs-keyword">while</span>(k)&#123;<br>		pii t = q.<span class="hljs-built_in">top</span>();<br>		q.<span class="hljs-built_in">pop</span>();<br>		<span class="hljs-keyword">if</span>(t.first != st[t.second])&#123;<br>			q.<span class="hljs-built_in">push</span>(&#123;st[t.second], t.second&#125;);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125;<br>		k--;<br>		<span class="hljs-type">int</span> pos = t.second;<br>		<span class="hljs-keyword">if</span>(l[pos] &gt;= <span class="hljs-number">0</span>) st[l[pos]] += t.first;<br>		<span class="hljs-keyword">if</span>(r[pos] &gt;= <span class="hljs-number">0</span>) st[r[pos]] += t.first;<br>		<br>		<span class="hljs-keyword">if</span>(l[pos] &gt;= <span class="hljs-number">0</span>) r[l[pos]] = r[pos];<br>		<span class="hljs-keyword">if</span>(r[pos] &gt;= <span class="hljs-number">0</span>) l[r[pos]] = l[pos];<br>		st[pos] = <span class="hljs-number">-1</span>;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>		<span class="hljs-keyword">if</span>(st[i] != <span class="hljs-number">-1</span>)&#123;<br>			cout&lt;&lt;st[i]&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>总结：一些细节问题可以学习，比如<strong>修改值，就是先取，发现值有了更新就加上放回去再重新取</strong>，直到没有改变多了，再k–,这点很巧妙。这是由于小根堆的特点，取最小值比较快。不能直接找出那个要加的值，取出再放回，那么小根堆就失去优势了。</li>
+</ul>
 
                 
               </div>
@@ -391,11 +414,32 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
+        <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" class="print-no-link">#蓝桥杯</a>
       
     </div>
   
