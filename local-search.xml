@@ -4,13 +4,44 @@
   
   
   <entry>
+    <title>蓝桥杯2023年国A</title>
+    <link href="/2024/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF2023%E5%B9%B4%E5%9B%BDA/"/>
+    <url>/2024/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF2023%E5%B9%B4%E5%9B%BDA/</url>
+    
+    <content type="html"><![CDATA[<h2 id="蓝桥杯2023年国A真题"><a href="#蓝桥杯2023年国A真题" class="headerlink" title="蓝桥杯2023年国A真题"></a>蓝桥杯2023年国A真题</h2><h4 id="C切割"><a href="#C切割" class="headerlink" title="C切割:"></a>C切割:</h4><ul><li>思路：找两个数的最小公因数，从小暴力遍历即可</li><li>代码：</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> w, h, ans;<br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>cin&gt;&gt;w&gt;&gt;h;<br><span class="hljs-type">int</span> minn = <span class="hljs-built_in">min</span>(w, h);<br><span class="hljs-type">int</span> maxn = <span class="hljs-built_in">max</span>(w, h);<br><span class="hljs-type">int</span> flag = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= minn; i++)&#123;<br><span class="hljs-keyword">if</span>(minn % i==<span class="hljs-number">0</span> &amp;&amp; maxn %i ==<span class="hljs-number">0</span>)&#123;<br>ans = (minn/i)*(maxn/i);<br>cout&lt;&lt;ans&lt;&lt;endl;<br>flag = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">break</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>(!flag)&#123;<br>cout&lt;&lt;<span class="hljs-string">&quot;0&quot;</span>&lt;&lt;endl;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h4 id="DXYZ："><a href="#DXYZ：" class="headerlink" title="DXYZ："></a>DXYZ：</h4>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2022年蓝桥杯国A总结</title>
     <link href="/2024/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/2022%E5%B9%B4%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BDA%E6%80%BB%E7%BB%93/"/>
     <url>/2024/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/2022%E5%B9%B4%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BDA%E6%80%BB%E7%BB%93/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="蓝桥杯2022年第十三届国赛真题总结"><a href="#蓝桥杯2022年第十三届国赛真题总结" class="headerlink" title="蓝桥杯2022年第十三届国赛真题总结"></a>蓝桥杯2022年第十三届国赛真题总结</h2><h4 id="A小蓝与钥匙："><a href="#A小蓝与钥匙：" class="headerlink" title="A小蓝与钥匙："></a>A小蓝与钥匙：</h4><ul><li>错排，需要提前接触过，或者理解清楚题意，自己找规律总结</li></ul><h4 id="B排列距离："><a href="#B排列距离：" class="headerlink" title="B排列距离："></a>B排列距离：</h4><ul><li>康托展开，也需要一定算法基础</li></ul><h4 id="C内存空间："><a href="#C内存空间：" class="headerlink" title="C内存空间："></a>C内存空间：</h4><ul><li>分类模拟题，字符串处理，细心一点是可以做出来的</li></ul><h4 id="D最大公约数："><a href="#D最大公约数：" class="headerlink" title="D最大公约数："></a>D最大公约数：</h4><ul><li>暴力可以拿80%的分数，并不难，可以做出来的</li></ul><h4 id="E-owo"><a href="#E-owo" class="headerlink" title="E owo:"></a>E owo:</h4><ul><li>采取随机的方法暴力，要对字符串相关处理比较熟悉，可以拿30%分数</li></ul><h4 id="F环境治理："><a href="#F环境治理：" class="headerlink" title="F环境治理："></a>F环境治理：</h4><ul><li>二分+Floyed,两个算法都要比较熟练才行</li></ul><h4 id="G选素数"><a href="#G选素数" class="headerlink" title="G选素数:"></a>G选素数:</h4><ul><li>数学题结合了线性筛，有暴力的可能，首先需要研究出题眼是找最大质因子</li></ul><h4 id="H替换字符："><a href="#H替换字符：" class="headerlink" title="H替换字符："></a>H替换字符：</h4><ul><li>暴力即可，可以拿到一半左右分数</li></ul><h4 id="I三角序列："><a href="#I三角序列：" class="headerlink" title="I三角序列："></a>I三角序列：</h4><ul><li>暴力模拟+二分，有多个函数嵌套实现，需要仔细分析分解题意</li></ul><h4 id="分数分布：5-5-10-10-15-15-20-20-25-25-150分"><a href="#分数分布：5-5-10-10-15-15-20-20-25-25-150分" class="headerlink" title="分数分布：5+5+10+10+15+15+20+20+25+25&#x3D;150分"></a>分数分布：5+5+10+10+15+15+20+20+25+25&#x3D;150分</h4><h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ul><li>暴力还是很重要的，可以拿到不少分数，要多多训练</li><li>基础算法比如二分，Floyed所属的图论，要很熟练</li><li>进阶算法：错排，康托展开，线性筛都可以多多学习接触一下，真的考到了是事半功倍的</li><li>&#x3D;&#x3D;&#x3D;&gt;还是把精力放在<strong>暴力和基础算法的训练</strong>上，进阶算法可以适当地学习，还有就是心态的训练，前两道选择题没思路可以先果断跳过，后面分数比重更高，机会更多</li></ul>]]></content>
     
     
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>蓝桥杯</tag>
+      
+    </tags>
     
   </entry>
   
