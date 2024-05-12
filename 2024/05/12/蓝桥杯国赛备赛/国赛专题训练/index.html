@@ -16,22 +16,22 @@
   <meta name="author" content="jhxxxxx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="蓝桥杯2022年第十三届国赛真题总结A小蓝与钥匙： 错排，需要提前接触过，或者理解清楚题意，自己找规律总结  B排列距离： 康托展开，也需要一定算法基础  C内存空间： 分类模拟题，字符串处理，细心一点是可以做出来的  D最大公约数： 暴力可以拿80%的分数，并不难，可以做出来的  E owo: 采取随机的方法暴力，要对字符串相关处理比较熟悉，可以拿30%分数  F环境治理： 二分+Floyed,">
+    <meta name="description" content="国赛专题训练1.暴力-forowo: 思路：暴力的时候，因为采用的random_shuffle来打乱再计数，那么for的次数越多越好，所以不必考虑最大的1e6,考虑5000即可，然后增加for的次数到5e3，这样通过的样例会更多。 字符串处理：random_shufle(begin, end), 可以打乱数组顺序。str.find(“owo”)返回找到第一个owo的位置， str.find(“ow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2022年蓝桥杯国A总结">
-<meta property="og:url" content="http://example.com/2024/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/2022%E5%B9%B4%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BDA%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="国赛专题训练">
+<meta property="og:url" content="http://example.com/2024/05/12/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E5%9B%BD%E8%B5%9B%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83/index.html">
 <meta property="og:site_name" content="jhxxxxx">
-<meta property="og:description" content="蓝桥杯2022年第十三届国赛真题总结A小蓝与钥匙： 错排，需要提前接触过，或者理解清楚题意，自己找规律总结  B排列距离： 康托展开，也需要一定算法基础  C内存空间： 分类模拟题，字符串处理，细心一点是可以做出来的  D最大公约数： 暴力可以拿80%的分数，并不难，可以做出来的  E owo: 采取随机的方法暴力，要对字符串相关处理比较熟悉，可以拿30%分数  F环境治理： 二分+Floyed,">
+<meta property="og:description" content="国赛专题训练1.暴力-forowo: 思路：暴力的时候，因为采用的random_shuffle来打乱再计数，那么for的次数越多越好，所以不必考虑最大的1e6,考虑5000即可，然后增加for的次数到5e3，这样通过的样例会更多。 字符串处理：random_shufle(begin, end), 可以打乱数组顺序。str.find(“owo”)返回找到第一个owo的位置， str.find(“ow">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-03T02:30:23.000Z">
-<meta property="article:modified_time" content="2024-05-11T13:32:26.323Z">
+<meta property="article:published_time" content="2024-05-12T01:56:22.000Z">
+<meta property="article:modified_time" content="2024-05-12T02:41:37.682Z">
 <meta property="article:author" content="jhxxxxx">
-<meta property="article:tag" content="蓝桥杯">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>2022年蓝桥杯国A总结 - jhxxxxx</title>
+  <title>国赛专题训练 - jhxxxxx</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2022年蓝桥杯国A总结"></span>
+            <span id="subtitle" data-typed-text="国赛专题训练"></span>
           
         </div>
 
@@ -237,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-03 10:30" pubdate>
-          2024年5月3日 上午
+        <time datetime="2024-05-12 09:56" pubdate>
+          2024年5月12日 上午
         </time>
       </span>
     
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          883 字
+          355 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          8 分钟
+          3 分钟
         
       </span>
     
@@ -305,80 +305,24 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2022年蓝桥杯国A总结</h1>
+            <h1 id="seo-header">国赛专题训练</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="蓝桥杯2022年第十三届国赛真题总结"><a href="#蓝桥杯2022年第十三届国赛真题总结" class="headerlink" title="蓝桥杯2022年第十三届国赛真题总结"></a>蓝桥杯2022年第十三届国赛真题总结</h2><h4 id="A小蓝与钥匙："><a href="#A小蓝与钥匙：" class="headerlink" title="A小蓝与钥匙："></a>A小蓝与钥匙：</h4><ul>
-<li>错排，需要提前接触过，或者理解清楚题意，自己找规律总结</li>
+                <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="国赛专题训练"><a href="#国赛专题训练" class="headerlink" title="国赛专题训练"></a>国赛专题训练</h2><h3 id="1-暴力-for"><a href="#1-暴力-for" class="headerlink" title="1.暴力-for"></a>1.暴力-for</h3><h4 id="owo"><a href="#owo" class="headerlink" title="owo:"></a>owo:</h4><ul>
+<li>思路：暴力的时候，因为采用的random_shuffle来打乱再计数，那么for的次数越多越好，所以<strong>不必考虑最大的1e6,考虑5000即可</strong>，然后增加for的次数到5e3，这样通过的样例会更多。</li>
+<li>字符串处理：random_shufle(begin, end), 可以打乱数组顺序。str.find(“owo”)返回找到第一个owo的位置， str.find(“owo”, p+1)返回从p+1开始找的第一个owo的位置。</li>
+<li>代码：</li>
 </ul>
-<h4 id="B排列距离："><a href="#B排列距离：" class="headerlink" title="B排列距离："></a>B排列距离：</h4><ul>
-<li>康托展开，也需要一定算法基础</li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long </span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n;<br><span class="hljs-type">int</span> ans;<br>string str[N]; <br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>		cin&gt;&gt;str[i];<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> cnt = <span class="hljs-number">1</span>; cnt &lt;= <span class="hljs-number">5e3</span>; cnt++)&#123;<br>			<span class="hljs-type">int</span> count = <span class="hljs-number">0</span>;<br>			<span class="hljs-built_in">random_shuffle</span>(str, str+<span class="hljs-number">1</span>+i);<br>			string t = <span class="hljs-string">&quot;&quot;</span>;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt;= i; j++) t = t + str[j];<br>			<span class="hljs-type">int</span> p = t.<span class="hljs-built_in">find</span>(<span class="hljs-string">&quot;owo&quot;</span>);<br>			<span class="hljs-keyword">while</span>(p != <span class="hljs-number">-1</span>)&#123;<br>				count++;<br>				p = t.<span class="hljs-built_in">find</span>(<span class="hljs-string">&quot;owo&quot;</span>, p+<span class="hljs-number">1</span>);<br>			&#125;<br>			ans = <span class="hljs-built_in">max</span>(ans, count);<br>		&#125;<br>		cout&lt;&lt;ans&lt;&lt;endl;<br>	&#125;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="子串："><a href="#子串：" class="headerlink" title="子串："></a>子串：</h4><ul>
+<li>思路：使用hash，即map来存储所有的子串出现的次数，再对所有的map进行一个计数</li>
+<li>字符串处理：取子串t &#x3D; s.substr(begin, len)</li>
 </ul>
-<h4 id="C内存空间："><a href="#C内存空间：" class="headerlink" title="C内存空间："></a>C内存空间：</h4><ul>
-<li>分类模拟题，字符串处理，细心一点是可以做出来的</li>
-</ul>
-<h4 id="D最大公约数："><a href="#D最大公约数：" class="headerlink" title="D最大公约数："></a>D最大公约数：</h4><ul>
-<li>暴力可以拿80%的分数，并不难，可以做出来的</li>
-</ul>
-<h4 id="E-owo"><a href="#E-owo" class="headerlink" title="E owo:"></a>E owo:</h4><ul>
-<li>采取随机的方法暴力，要对字符串相关处理比较熟悉，可以拿30%分数</li>
-</ul>
-<h4 id="F环境治理："><a href="#F环境治理：" class="headerlink" title="F环境治理："></a>F环境治理：</h4><ul>
-<li>二分+Floyed,两个算法都要比较熟练才行</li>
-</ul>
-<h4 id="G选素数"><a href="#G选素数" class="headerlink" title="G选素数:"></a>G选素数:</h4><ul>
-<li>数学题，结合了线性筛，有暴力的可能，首先需要研究出题眼是找最大质因子</li>
-</ul>
-<h4 id="H替换字符："><a href="#H替换字符：" class="headerlink" title="H替换字符："></a>H替换字符：</h4><ul>
-<li>暴力即可，可以拿到一半左右分数</li>
-</ul>
-<h4 id="I三角序列："><a href="#I三角序列：" class="headerlink" title="I三角序列："></a>I三角序列：</h4><ul>
-<li>暴力模拟+二分，有多个函数嵌套实现，需要仔细分析分解题意</li>
-</ul>
-<h4 id="分数分布：5-5-10-10-15-15-20-20-25-25-150分"><a href="#分数分布：5-5-10-10-15-15-20-20-25-25-150分" class="headerlink" title="分数分布：5+5+10+10+15+15+20+20+25+25&#x3D;150分"></a>分数分布：5+5+10+10+15+15+20+20+25+25&#x3D;150分</h4><h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ul>
-<li>暴力还是很重要的，可以拿到不少分数，可以总结一些常用的暴力手段</li>
-<li>基础算法比如二分，Floyed所属的图论，要很熟练</li>
-<li>进阶算法：错排，康托展开，线性筛都可以多多学习接触一下，真的考到了是事半功倍的</li>
-<li>&#x3D;&#x3D;&#x3D;&gt;还是把精力放在<strong>暴力和基础算法的训练</strong>上，进阶算法可以适当地学习，还有就是心态的训练，前两道选择题没思路可以先果断跳过，后面分数比重更高，机会更多</li>
-</ul>
-<h2 id="蓝桥杯2023年第十四届国赛真题总结"><a href="#蓝桥杯2023年第十四届国赛真题总结" class="headerlink" title="蓝桥杯2023年第十四届国赛真题总结"></a>蓝桥杯2023年第十四届国赛真题总结</h2><h4 id="AB填空题："><a href="#AB填空题：" class="headerlink" title="AB填空题："></a>AB填空题：</h4><ul>
-<li>涉及到的是比较不常用的算法，不了解算法的话也很难暴力，性价比不高，于是跳过</li>
-</ul>
-<h4 id="C切割："><a href="#C切割：" class="headerlink" title="C切割："></a>C切割：</h4><ul>
-<li>模拟暴力求解，比较简单的一道题目</li>
-</ul>
-<h4 id="DXYZ："><a href="#DXYZ：" class="headerlink" title="DXYZ："></a>DXYZ：</h4><ul>
-<li>规律题，有特殊情况需要考虑，需要出一些测试样例会比较保险</li>
-</ul>
-<h4 id="E第K小的数："><a href="#E第K小的数：" class="headerlink" title="E第K小的数："></a>E第K小的数：</h4><ul>
-<li>暴力：使用vector数组+sort即可，代码简单</li>
-<li>正解：二分+二分，二分的判定条件也要考虑妥当，理清思路后并不难写。这方面的思维可以再多多锻炼</li>
-</ul>
-<h4 id="F相连的边："><a href="#F相连的边：" class="headerlink" title="F相连的边："></a>F相连的边：</h4><ul>
-<li>分类讨论，涉及图的存储，边的排序，思路并不难，但是不够熟练这一类的题目</li>
-</ul>
-<h4 id="G01游戏"><a href="#G01游戏" class="headerlink" title="G01游戏:"></a>G01游戏:</h4><ul>
-<li>dfs+剪枝，对于dfs思路清晰比较重要，写的过程中发现思路还有优点混乱需要在dfs这再多多练习。dfs的写法有多种，但要找到一种自己熟悉的模式，固定下来。</li>
-</ul>
-<h4 id="H子串："><a href="#H子串：" class="headerlink" title="H子串："></a>H子串：</h4><ul>
-<li>用map来实现字符串hash，可以多多了解字符串的常见处理以及map这些常用stl的用法</li>
-</ul>
-<h4 id="I树上的路径："><a href="#I树上的路径：" class="headerlink" title="I树上的路径："></a>I树上的路径：</h4><ul>
-<li>用LCA暴力可以获得不少分数，证明了这一算法的重要性，需要熟练掌握。</li>
-</ul>
-<h4 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a>总结：</h4><ul>
-<li>首先先打一剂强心针，两年的真题过下来，再增强当前基础的前提下，是有可能拿到国二的，要有信心</li>
-<li>需要加强的基础算法：<ul>
-<li>图的存储: 包括最短路算法</li>
-<li>dfs暴力：各种图上的搜索</li>
-<li>lca:板子要特别熟悉，包括cal_sum这个函数</li>
-<li>补充：线性筛，并查集，字符串处理，map处理，dp基础题</li>
-</ul>
-</li>
-<li>稳扎稳打，除了前两道题和最后一道题，其他题目都是可以争取部分分数的。</li>
-</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e6</span>;<br>string s; <br>unordered_map&lt;string, <span class="hljs-type">int</span>&gt; mp;<br><span class="hljs-type">int</span> res[N];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;s;<br>	<span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> len = <span class="hljs-number">1</span>; len &lt;= n; len++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i + len <span class="hljs-number">-1</span> &lt; n; i++)&#123;<br>			string t = s.<span class="hljs-built_in">substr</span>(i, len);<br>			mp[t]++;<br>		&#125; <br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> i:mp)&#123;<br>		<span class="hljs-type">int</span> cnt = i.second;<br>		res[cnt]++;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>		cout&lt;&lt;res[i]&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -387,32 +331,11 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" class="print-no-link">#蓝桥杯</a>
+        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
       
     </div>
   
@@ -424,8 +347,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2022年蓝桥杯国A总结</div>
-      <div>http://example.com/2024/05/03/蓝桥杯国赛备赛/2022年蓝桥杯国A总结/</div>
+      <div>国赛专题训练</div>
+      <div>http://example.com/2024/05/12/蓝桥杯国赛备赛/国赛专题训练/</div>
     </div>
     <div class="license-meta">
       
@@ -437,7 +360,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月3日</div>
+          <div>2024年5月12日</div>
         </div>
       
       
@@ -469,18 +392,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF2023%E5%B9%B4%E5%9B%BDA/" title="蓝桥杯2023年国A">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">蓝桥杯2023年国A</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/22/%E6%A0%A1%E5%86%85%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" title="机器学习-支持向量机">
-                        <span class="hidden-mobile">机器学习-支持向量机</span>
+                      <a href="/2024/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF2023%E5%B9%B4%E5%9B%BDA/" title="蓝桥杯2023年国A">
+                        <span class="hidden-mobile">蓝桥杯2023年国A</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
