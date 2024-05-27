@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>2023年蓝桥杯国B</title>
+    <link href="/2024/05/27/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/2023%E5%B9%B4%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BDB/"/>
+    <url>/2024/05/27/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/2023%E5%B9%B4%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BDB/</url>
+    
+    <content type="html"><![CDATA[<h2 id="2023年蓝桥杯国赛B组"><a href="#2023年蓝桥杯国赛B组" class="headerlink" title="2023年蓝桥杯国赛B组"></a>2023年蓝桥杯国赛B组</h2><h4 id="C班级活动："><a href="#C班级活动：" class="headerlink" title="C班级活动："></a>C班级活动：</h4><ul><li>分类讨论即可，题目并不难，但是卡在了数组越界，N是数组的大小，然后又从1遍历到N就会出问题，经验+1，要注意避免这种情况。</li></ul><h4 id="D合并数列："><a href="#D合并数列：" class="headerlink" title="D合并数列："></a>D合并数列：</h4><ul><li>模拟题，把两种不等的情况合并起来，最后调试做出来了。还是要多多考虑特殊情况，比如必须要合并所有的情况来测试，在比赛过程中要多多考虑最特殊的情况，多加测试才更能保证得分。</li></ul><h4 id="E数三角："><a href="#E数三角：" class="headerlink" title="E数三角："></a>E数三角：</h4><ul><li>暴力模拟：可以过75%，刚开始陷入了三角形共线的判断，实则可以换一个思路，用两边之和大于第三边去判断，简化步骤。</li><li>不要一直局限在一个做法里，可以多多思考有没有其他方式解决。是可以拿到部分分的。</li><li>期间，用了求共线的方式，看似可行，但是分支情况太多，导致实际上一个点也过不了，要多方验证，有很严谨的推导过程。最好一开始就想好代码怎么实现，但也不必害怕中途改方式，说不定会有更加简单可实现的。</li></ul><h4 id="F删边问题：0"><a href="#F删边问题：0" class="headerlink" title="F删边问题：0"></a>F删边问题：0</h4><h4 id="GAB路线："><a href="#GAB路线：" class="headerlink" title="GAB路线："></a>GAB路线：</h4><h4 id="H抓娃娃："><a href="#H抓娃娃：" class="headerlink" title="H抓娃娃："></a>H抓娃娃：</h4><h4 id="I拼数字：0"><a href="#I拼数字：0" class="headerlink" title="I拼数字：0"></a>I拼数字：0</h4>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>重做2023年国A</title>
     <link href="/2024/05/17/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E9%87%8D%E5%81%9A2023%E5%B9%B4%E5%9B%BDA/"/>
     <url>/2024/05/17/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E9%87%8D%E5%81%9A2023%E5%B9%B4%E5%9B%BDA/</url>
