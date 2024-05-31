@@ -16,22 +16,22 @@
   <meta name="author" content="jhxxxxx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="复习1.选素数:线性筛 思路：根据题目规律分析出求f(n) &#x3D; n-pmax+1,n不为素数，接下来就是利用线性筛来求每个数的pmax了。模板还是比较好记的。 总结：代码长度不长，主要要根据规律分析出如何求解的x以及知道利用线性筛求数的最大质因子。  2.单源最短路：dijkstra 思路：主要采用链式前向星和优先队列来实现单源最短路的更新，模板的写法要非常熟悉。  3.字符迁移：差分">
+    <meta name="description" content="蓝桥杯国赛比赛注意点1.知识点总结：2022年国A： 前两道填空题涉及错排和康托展开比较不常用的算法，没有想出来可以跳过，或者可以尝试寻找规律去做。 C题模拟题，细心就可以做出来 D题模拟可以拿大部分分数，正解是线段树+二分，也是比较基础的使用，可以尝试去想正解 E题分类情况比较复杂，通过随机函数来暴力求解可以得到部分分数 F题图的存储，Floyed+二分，可以大胆尝试去做，基本算法的组合 G题数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蓝桥杯备赛-复习和模拟赛">
-<meta property="og:url" content="http://example.com/2024/05/30/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9B-%E5%A4%8D%E4%B9%A0%E5%92%8C%E6%A8%A1%E6%8B%9F%E8%B5%9B/index.html">
+<meta property="og:title" content="蓝桥杯国赛备赛总结">
+<meta property="og:url" content="http://example.com/2024/05/31/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="jhxxxxx">
-<meta property="og:description" content="复习1.选素数:线性筛 思路：根据题目规律分析出求f(n) &#x3D; n-pmax+1,n不为素数，接下来就是利用线性筛来求每个数的pmax了。模板还是比较好记的。 总结：代码长度不长，主要要根据规律分析出如何求解的x以及知道利用线性筛求数的最大质因子。  2.单源最短路：dijkstra 思路：主要采用链式前向星和优先队列来实现单源最短路的更新，模板的写法要非常熟悉。  3.字符迁移：差分">
+<meta property="og:description" content="蓝桥杯国赛比赛注意点1.知识点总结：2022年国A： 前两道填空题涉及错排和康托展开比较不常用的算法，没有想出来可以跳过，或者可以尝试寻找规律去做。 C题模拟题，细心就可以做出来 D题模拟可以拿大部分分数，正解是线段树+二分，也是比较基础的使用，可以尝试去想正解 E题分类情况比较复杂，通过随机函数来暴力求解可以得到部分分数 F题图的存储，Floyed+二分，可以大胆尝试去做，基本算法的组合 G题数">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-30T01:40:39.000Z">
-<meta property="article:modified_time" content="2024-05-31T07:45:15.353Z">
+<meta property="article:published_time" content="2024-05-31T07:46:00.000Z">
+<meta property="article:modified_time" content="2024-05-31T09:07:22.033Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>蓝桥杯备赛-复习和模拟赛 - jhxxxxx</title>
+  <title>蓝桥杯国赛备赛总结 - jhxxxxx</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="蓝桥杯备赛-复习和模拟赛"></span>
+            <span id="subtitle" data-typed-text="蓝桥杯国赛备赛总结"></span>
           
         </div>
 
@@ -237,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-30 09:40" pubdate>
-          2024年5月30日 上午
+        <time datetime="2024-05-31 15:46" pubdate>
+          2024年5月31日 下午
         </time>
       </span>
     
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          653 字
+          1.1k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          6 分钟
+          10 分钟
         
       </span>
     
@@ -305,41 +305,61 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">蓝桥杯备赛-复习和模拟赛</h1>
+            <h1 id="seo-header">蓝桥杯国赛备赛总结</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><h4 id="1-选素数-线性筛"><a href="#1-选素数-线性筛" class="headerlink" title="1.选素数:线性筛"></a>1.选素数:线性筛</h4><ul>
-<li>思路：根据题目规律分析出求f(n) &#x3D; n-pmax+1,<strong>n不为素数</strong>，接下来就是利用线性筛来求每个数的pmax了。模板还是比较好记的。</li>
-<li>总结：代码长度不长，主要要根据<strong>规律分析</strong>出如何求解的x以及知道<strong>利用线性筛求数的最大质因子</strong>。</li>
+                <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="蓝桥杯国赛比赛注意点"><a href="#蓝桥杯国赛比赛注意点" class="headerlink" title="蓝桥杯国赛比赛注意点"></a>蓝桥杯国赛比赛注意点</h2><h3 id="1-知识点总结："><a href="#1-知识点总结：" class="headerlink" title="1.知识点总结："></a>1.知识点总结：</h3><h4 id="2022年国A："><a href="#2022年国A：" class="headerlink" title="2022年国A："></a>2022年国A：</h4><ul>
+<li>前两道填空题涉及错排和康托展开比较不常用的算法，没有想出来可以跳过，或者可以尝试寻找规律去做。</li>
+<li>C题模拟题，细心就可以做出来</li>
+<li>D题模拟可以拿大部分分数，正解是线段树+二分，也是比较基础的使用，可以尝试去想正解</li>
+<li>E题分类情况比较复杂，通过随机函数来暴力求解可以得到部分分数</li>
+<li>F题图的存储，Floyed+二分，可以大胆尝试去做，基本算法的组合</li>
+<li>G题数学题，考察线性筛，也有暴力的可能，先分析出题眼是什么，到底要解决什么问题</li>
+<li>H题简单暴力题，可以过70%的点</li>
+<li>I题暴力模拟+二分，分类情况比较多，预先的思路需要很清晰，根据时间情况，可以尝试获得部分数</li>
 </ul>
-<h4 id="2-单源最短路：dijkstra"><a href="#2-单源最短路：dijkstra" class="headerlink" title="2.单源最短路：dijkstra"></a>2.单源最短路：dijkstra</h4><ul>
-<li>思路：主要采用<strong>链式前向星</strong>和<strong>优先队列</strong>来实现单源最短路的更新，模板的写法要非常熟悉。</li>
+<h4 id="2023年国A："><a href="#2023年国A：" class="headerlink" title="2023年国A："></a>2023年国A：</h4><ul>
+<li>前两道填空题涉及很偏门的算法，属于学了学不会的，研究一下不会的话跳过即可</li>
+<li>C题暴力模拟题，细心即可</li>
+<li>D题规律题，总结规律，要对特殊情况多加测试</li>
+<li>E题二分+二分，是可以做出来的，思路可以大胆一点，分析暴力复杂度高的原因进而去解决</li>
+<li>F题图的存储，二分类问题，去分析问题可能的情况，思路并不难。主要是熟练点和边的存储</li>
+<li>G题dfs+剪枝，dfs的就是考虑退出条件，分类往下，恢复现场，返回退出这几点，思路清晰很重要</li>
+<li>H题字符串暴力题，要熟悉字符串的常见处理，结合map来使用</li>
+<li>I题lca暴力可以过65%，背模板还是很事半功倍的</li>
 </ul>
-<h4 id="3-字符迁移：差分"><a href="#3-字符迁移：差分" class="headerlink" title="3.字符迁移：差分"></a>3.字符迁移：差分</h4><ul>
-<li>思路：连续一段区间加一个数就是差分的特点，cha[l]+&#x3D;k,cha[r+1]-&#x3D;k,然后前差分数组的前缀和就是最终原数组。写一个示例数组就能很清晰地理清两者的关系了。</li>
-<li><strong>注意：</strong>%不要在差分求解的过程中进行，会打乱数组。在原数组求解出来之后在对应进行%运算。</li>
+<h4 id="2023年国B："><a href="#2023年国B：" class="headerlink" title="2023年国B："></a>2023年国B：</h4><ul>
+<li>前两道填空题暂且跳过</li>
+<li>C题分类模拟，比较简单，注意细节即可</li>
+<li>D题双指针，多多测试特殊情况，并不复杂</li>
+<li>E题暴力题或者利用STL降低复杂度，考察对于set, map的使用</li>
+<li>F题图的存储，tarjan连通块，不会跳过</li>
+<li>G题BFS+分层图，在BFS基础上增加一个判定维度，可以尝试去做一下</li>
+<li>H题二分，通过二分找到两个端点即可求解</li>
+<li>I题看不懂跳过</li>
 </ul>
-<h4 id="强者挑战赛11："><a href="#强者挑战赛11：" class="headerlink" title="强者挑战赛11："></a>强者挑战赛11：</h4><h4 id="A玩偶购买："><a href="#A玩偶购买：" class="headerlink" title="A玩偶购买："></a>A玩偶购买：</h4><ul>
-<li>分类讨论，一些细节要多多注意，通过几次调试过了。但是正式比赛的时候一定要细心细心再细心，多多输出中间条件来测试。</li>
+<h5 id="分数分布：5-5-10-10-15-15-20-20-25-25-150分"><a href="#分数分布：5-5-10-10-15-15-20-20-25-25-150分" class="headerlink" title="分数分布：5+5+10+10+15+15+20+20+25+25&#x3D;150分"></a>分数分布：5+5+10+10+15+15+20+20+25+25&#x3D;150分</h5><h4 id="题型总结："><a href="#题型总结：" class="headerlink" title="题型总结："></a>题型总结：</h4><ul>
+<li>前两道填空题考察的算法一半会就是会，不会就是不会，研究一下，做不出来可以果断放弃</li>
+<li>C，D，E题相对比较简单，C，D反复测试去拿全部分数，E题大胆尝试正解，一定要多加测试，注意特殊情况</li>
+<li>F题一般是<strong>图的存储</strong>，仔细分析问题的情况，完全可以去大胆尝试的</li>
+<li>G，H，I题可能涉及<strong>树，数学题，字符串处理，dfs&#x2F;bfs,二分暴力求解</strong>，都是<strong>基本算法的结合或者暴力</strong>可以获得大部分分数，每一题都要仔细过一遍，尽可能地得分。</li>
 </ul>
-<h4 id="B数学魔法家："><a href="#B数学魔法家：" class="headerlink" title="B数学魔法家："></a>B数学魔法家：</h4><ul>
-<li>两种情况，主要是前导零的情况要进行特殊处理，多加测试，做出来了。</li>
+<h3 id="2-做题策略："><a href="#2-做题策略：" class="headerlink" title="2.做题策略："></a>2.做题策略：</h3><ul>
+<li><strong>两道填空题</strong>不要用过多的时间，不会的话果断放弃</li>
+<li><strong>前三道算法题</strong>尽可能去想正解，反复多加测试，完全可以多放一些时间，稳稳地去做，不必着急</li>
+<li><strong>后四道题或者加上最后一道题</strong>，可以去拿部分分甚至全部的分数，很多可以暴力求解，多想几组测试数据，稳中求胜</li>
 </ul>
-<h4 id="C矿石样本分析："><a href="#C矿石样本分析：" class="headerlink" title="C矿石样本分析："></a>C矿石样本分析：</h4><ul>
-<li>map存储来实现快速查找，注意两个矿石的值不能相同，题目的限定条件最好还是写下来，不容易忘记。修改了一次最终通过了。</li>
+<h3 id="3-时间安排："><a href="#3-时间安排：" class="headerlink" title="3.时间安排："></a>3.时间安排：</h3><ul>
+<li><p>开始先敲好代码框架（包括signed），运行没有问题，复制多个，命名A-I，以及可以有一个test程序方便临时测试</p>
+</li>
+<li><p><strong>注意在一道题目上不要停留过长的时间</strong>，不要超过30-40分钟，可以先放一放，做后面的题，之后可以再回过头来看，可能会有新思路</p>
+</li>
+<li><p>最后一定要<strong>留40分钟以上</strong>的时间来检查所有题目，把提交的内容再拿回来测试，或是可以暴力模拟拿分的题目再想想有没有更好的办法。<strong>最后几分钟</strong>再看一下提交的内容有没有问题</p>
+</li>
 </ul>
-<h4 id="D拔苗助长："><a href="#D拔苗助长：" class="headerlink" title="D拔苗助长："></a>D拔苗助长：</h4><ul>
-<li>考察完全平方数的唯一分解定律，它分解为多个质数相乘，那么质数的系数一定是偶数。选任意两个数相乘为完全平方数，那么它们对应的质因子的和应该为偶数，当出现在一个数内出现了奇数次x的质数时，需要进行操作，它们要么全变成偶数（x次），要么把剩余的全变成奇数（n-x）,两者取较小值。</li>
-<li>还是有点晕晕，结合具体的例子来看会清晰很多。评论区翻到的代码太厉害了。尤其是分解质因子这里很巧妙！</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++">unordered_map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; mp;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">2</span>;j*j&lt;=a[i]; j++)&#123;<br>		<span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(a[i]%j==<span class="hljs-number">0</span>)&#123;<br>			a[i]/=j;<br>			cnt++;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(cnt%<span class="hljs-number">2</span>==<span class="hljs-number">1</span>)&#123;<br>			mp[j]++;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(a[i]!=<span class="hljs-number">1</span>)&#123;<br>		mp[a[i]]++;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>另外，线性筛还可以用来求最小质因子</li>
-</ul>
-
+<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3>
                 
               </div>
             
@@ -363,8 +383,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>蓝桥杯备赛-复习和模拟赛</div>
-      <div>http://example.com/2024/05/30/蓝桥杯国赛备赛/蓝桥杯备赛-复习和模拟赛/</div>
+      <div>蓝桥杯国赛备赛总结</div>
+      <div>http://example.com/2024/05/31/蓝桥杯国赛备赛/蓝桥杯国赛备赛总结/</div>
     </div>
     <div class="license-meta">
       
@@ -376,7 +396,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月30日</div>
+          <div>2024年5月31日</div>
         </div>
       
       
@@ -408,18 +428,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/31/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B%E6%80%BB%E7%BB%93/" title="蓝桥杯国赛备赛总结">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">蓝桥杯国赛备赛总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/2023%E5%B9%B4%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BDB/" title="2023年蓝桥杯国B">
-                        <span class="hidden-mobile">2023年蓝桥杯国B</span>
+                      <a href="/2024/05/30/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9B%BD%E8%B5%9B%E5%A4%87%E8%B5%9B/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9B-%E5%A4%8D%E4%B9%A0%E5%92%8C%E6%A8%A1%E6%8B%9F%E8%B5%9B/" title="蓝桥杯备赛-复习和模拟赛">
+                        <span class="hidden-mobile">蓝桥杯备赛-复习和模拟赛</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
