@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>力扣100题---哈希</title>
+    <link href="/2024/08/03/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E5%93%88%E5%B8%8C/"/>
+    <url>/2024/08/03/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E5%93%88%E5%B8%8C/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><ul><li><p>描述：给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值</strong> <em><code>target</code></em> 的那 <strong>两个</strong> 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案</p></li></ul><h4 id="思路一："><a href="#思路一：" class="headerlink" title="思路一："></a>思路一：</h4><ul><li>暴力模拟，两个变量从前往后遍历，避免重复和自己和自己配对</li><li>代码：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">twoSum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        n = <span class="hljs-built_in">len</span>(nums) <span class="hljs-comment"># 获取数组长度</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i+<span class="hljs-number">1</span>, n):<br>                <span class="hljs-keyword">if</span>(nums[i] + nums[j] == target):<br>                    <span class="hljs-keyword">return</span> [i,j]<br>        <br>        <span class="hljs-keyword">return</span> []<br><br><br></code></pre></td></tr></table></figure><h4 id="思路二："><a href="#思路二：" class="headerlink" title="思路二："></a>思路二：</h4><ul><li>使用HASH表记录之前出现过的数字以及它的下标，那么只需要遍历数组一次，即O(N)的复杂度就可以找到对应的答案了</li><li>代码</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">twoSum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        hashtable = <span class="hljs-built_in">dict</span>() <span class="hljs-comment"># 用字典初始化哈希表</span><br>        <span class="hljs-keyword">for</span> i, num <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(nums): <span class="hljs-comment"># enumerate来获取nums的元素</span><br>            <span class="hljs-keyword">if</span> target - num <span class="hljs-keyword">in</span> hashtable: <span class="hljs-comment"># in来判断是否存在于哈希表</span><br>                <span class="hljs-keyword">return</span>[hashtable[target - num], i]<br>            hashtable[num] = i <span class="hljs-comment"># 存进哈希表</span><br>        <span class="hljs-keyword">return</span> []<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>力扣</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>小游戏浅浅分析</title>
     <link href="/2024/07/21/game/%E5%B0%8F%E6%B8%B8%E6%88%8F%E6%B5%85%E6%B5%85%E5%88%86%E6%9E%90/"/>
     <url>/2024/07/21/game/%E5%B0%8F%E6%B8%B8%E6%88%8F%E6%B5%85%E6%B5%85%E5%88%86%E6%9E%90/</url>
