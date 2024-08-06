@@ -16,22 +16,22 @@
   <meta name="author" content="jhxxxxx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.无重复字符的最长子串 描述：给定一个字符串 s ，请你找出其中不含有重复字符的 最长 子串 的长度。  思路一： 首先子串是连续的，可以先固定左端点，右端点在数组里遍历，当右端点的数出现过（哈希表），就移动对应的左端点直到满足右端点没有出现过。这样就遍历了所有的可能性，得出最大的ans。这是一个变长的滑动窗口。 代码：  12345678910111213class Solution:">
+    <meta name="description" content="1.和为K的子数组 描述：给你一个整数数组 nums 和一个整数 k ，请你统计并返回 该数组中和为 k 的子数组的个数 。 子数组是数组中元素的连续非空序列。   思路一： 连续序列加上求和，自然而然想到使用前缀和，由于数可能是正0负，求子数组的个数，可以依赖于哈希表，遍历前缀和数组，通过-k去找之前是否出现过sj-k的前缀和数字，就相当于有多少个区间是满足条件的。以O[N]的复杂度解决了区间的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣100题-滑动窗口">
-<meta property="og:url" content="http://example.com/2024/08/05/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/index.html">
+<meta property="og:title" content="力扣100题-子串">
+<meta property="og:url" content="http://example.com/2024/08/06/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E5%AD%90%E4%B8%B2/index.html">
 <meta property="og:site_name" content="jhxxxxx">
-<meta property="og:description" content="1.无重复字符的最长子串 描述：给定一个字符串 s ，请你找出其中不含有重复字符的 最长 子串 的长度。  思路一： 首先子串是连续的，可以先固定左端点，右端点在数组里遍历，当右端点的数出现过（哈希表），就移动对应的左端点直到满足右端点没有出现过。这样就遍历了所有的可能性，得出最大的ans。这是一个变长的滑动窗口。 代码：  12345678910111213class Solution:">
+<meta property="og:description" content="1.和为K的子数组 描述：给你一个整数数组 nums 和一个整数 k ，请你统计并返回 该数组中和为 k 的子数组的个数 。 子数组是数组中元素的连续非空序列。   思路一： 连续序列加上求和，自然而然想到使用前缀和，由于数可能是正0负，求子数组的个数，可以依赖于哈希表，遍历前缀和数组，通过-k去找之前是否出现过sj-k的前缀和数字，就相当于有多少个区间是满足条件的。以O[N]的复杂度解决了区间的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-05T14:15:51.000Z">
-<meta property="article:modified_time" content="2024-08-06T12:52:34.032Z">
+<meta property="article:published_time" content="2024-08-06T12:53:16.000Z">
+<meta property="article:modified_time" content="2024-08-06T13:03:44.963Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>力扣100题-滑动窗口 - jhxxxxx</title>
+  <title>力扣100题-子串 - jhxxxxx</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="力扣100题-滑动窗口"></span>
+            <span id="subtitle" data-typed-text="力扣100题-子串"></span>
           
         </div>
 
@@ -237,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-05 22:15" pubdate>
-          2024年8月5日 晚上
+        <time datetime="2024-08-06 20:53" pubdate>
+          2024年8月6日 晚上
         </time>
       </span>
     
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          561 字
+          263 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          5 分钟
+          3 分钟
         
       </span>
     
@@ -305,36 +305,22 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">力扣100题-滑动窗口</h1>
+            <h1 id="seo-header">力扣100题-子串</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="1-无重复字符的最长子串"><a href="#1-无重复字符的最长子串" class="headerlink" title="1.无重复字符的最长子串"></a>1.无重复字符的最长子串</h3><ul>
-<li>描述：给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长 子串</strong> 的长度。</li>
-</ul>
-<h4 id="思路一："><a href="#思路一：" class="headerlink" title="思路一："></a>思路一：</h4><ul>
-<li>首先子串是连续的，可以先固定左端点，右端点在数组里遍历，当右端点的数出现过（哈希表），就移动对应的左端点直到满足右端点没有出现过。这样就遍历了所有的可能性，得出最大的ans。这是一个变长的滑动窗口。</li>
-<li>代码：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">lengthOfLongestSubstring</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(s)<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-built_in">hash</span> = <span class="hljs-built_in">set</span>() <span class="hljs-comment"># 哈希表</span><br>        l = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> r, cur <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s):<br>            <span class="hljs-keyword">while</span> cur <span class="hljs-keyword">in</span> <span class="hljs-built_in">hash</span>: <span class="hljs-comment">#使[l,r]没有重复字符</span><br>                <span class="hljs-built_in">hash</span>.remove(s[l])<br>                l += <span class="hljs-number">1</span><br>            <span class="hljs-built_in">hash</span>.add(cur)<br>            ans = <span class="hljs-built_in">max</span>(ans, r - l + <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
-
-<h3 id="2-找到字符串中所有字母异位词"><a href="#2-找到字符串中所有字母异位词" class="headerlink" title="2.找到字符串中所有字母异位词"></a>2.找到字符串中所有字母异位词</h3><ul>
-<li><p>描述：给定两个字符串 <code>s</code> 和 <code>p</code>，找到 <code>s</code> 中所有 <code>p</code> 的 <strong>异位词</strong> 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。</p>
-<p><strong>异位词</strong> 指由相同字母重排列形成的字符串（包括相同的字符串）。</p>
+                <h3 id="1-和为K的子数组"><a href="#1-和为K的子数组" class="headerlink" title="1.和为K的子数组"></a>1.和为K的子数组</h3><ul>
+<li><p>描述：给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你统计并返回 <em>该数组中和为 <code>k</code> 的子数组的个数</em> 。</p>
+<p>子数组是数组中元素的连续非空序列。</p>
 </li>
 </ul>
-<h4 id="思路一：-1"><a href="#思路一：-1" class="headerlink" title="思路一："></a>思路一：</h4><ul>
-<li>由于p是确定的，这是一个定长的滑动窗口，用一个26大小的list来记录p，每一移动减少一个字母增加一个字母，再判断当前窗口是否和p一致即可。</li>
-<li>代码：</li>
+<h4 id="思路一："><a href="#思路一：" class="headerlink" title="思路一："></a>思路一：</h4><ul>
+<li>连续序列加上求和，自然而然想到使用前缀和，由于数可能是正0负，求子数组的个数，可以依赖于哈希表，遍历前缀和数组，通过-k去找之前是否出现过sj-k的前缀和数字，就相当于有多少个区间是满足条件的。以O[N]的复杂度解决了区间的查找，很巧妙。还有当只有一个元素的数组就这一个元素满足条件时，cnt[0] &#x3D; 1是很重要的初始化。</li>
+<li>代码</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">findAnagrams</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span>, p: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        slen = <span class="hljs-built_in">len</span>(s)<br>        plen = <span class="hljs-built_in">len</span>(p)<br>        <span class="hljs-keyword">if</span> slen &lt; plen:<br>            <span class="hljs-keyword">return</span> []<br>        s_count = [<span class="hljs-number">0</span>] * <span class="hljs-number">26</span><br>        p_count = [<span class="hljs-number">0</span>] * <span class="hljs-number">26</span> <span class="hljs-comment">#list初始化</span><br>        ans = <span class="hljs-built_in">list</span>()<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(plen):<br>            s_count[<span class="hljs-built_in">ord</span>(s[i])-<span class="hljs-number">97</span>] += <span class="hljs-number">1</span><br>            p_count[<span class="hljs-built_in">ord</span>(p[i])-<span class="hljs-number">97</span>] += <span class="hljs-number">1</span> <span class="hljs-comment">#对第一个plen的子串进行特殊处理</span><br>        <span class="hljs-keyword">if</span> s_count == p_count:<br>            ans.append(<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(plen, slen):<br>            s_count[<span class="hljs-built_in">ord</span>(s[i - plen])-<span class="hljs-number">97</span>] -= <span class="hljs-number">1</span><br>            s_count[<span class="hljs-built_in">ord</span>(s[i])-<span class="hljs-number">97</span>] += <span class="hljs-number">1</span> <span class="hljs-comment">#移出一个字母，移进一个字母</span><br>            <span class="hljs-keyword">if</span> s_count == p_count:<br>                ans.append(i-plen+<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pyhton">class Solution:<br>    def subarraySum(self, nums: List[int], k: int) -&gt; int:<br>        n = len(nums)<br>        sum = [0]*(n+1)<br>        for i in range(n):<br>            sum[i+1] = sum[i] + nums[i] # 求前缀和数组<br>        cnt = defaultdict(int) # cnt初始化为0<br>        ans = 0<br>        for sj in sum:<br>            ans += cnt[sj - k] #先求解，再把数放进哈希表<br>            cnt[sj] += 1<br>        return ans<br></code></pre></td></tr></table></figure>
 
-<h3 id="小节："><a href="#小节：" class="headerlink" title="小节："></a>小节：</h3><ul>
-<li>滑动窗口是指维护一个满足特殊条件的区间，可能是定长的或是变长的</li>
-<li>重点是这个特殊条件，以上两个条件分别是没有重复字母（哈希表），判断是否是某个字符串的异位词（数组标记）</li>
-<li>有点像双指针，是一种特殊的双指针策略，主要用于处理连续子数组或子字符串问题。第一题就是它通过维护一个动态的区间（窗口）来优化查找过程。</li>
-</ul>
 
                 
               </div>
@@ -380,8 +366,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>力扣100题-滑动窗口</div>
-      <div>http://example.com/2024/08/05/力扣100题/力扣100题-滑动窗口/</div>
+      <div>力扣100题-子串</div>
+      <div>http://example.com/2024/08/06/力扣100题/力扣100题-子串/</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +379,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月5日</div>
+          <div>2024年8月6日</div>
         </div>
       
       
@@ -425,18 +411,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/08/06/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E5%AD%90%E4%B8%B2/" title="力扣100题-子串">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">力扣100题-子串</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/08/04/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E5%8F%8C%E6%8C%87%E9%92%88/" title="力扣100题-双指针">
-                        <span class="hidden-mobile">力扣100题-双指针</span>
+                      <a href="/2024/08/05/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" title="力扣100题-滑动窗口">
+                        <span class="hidden-mobile">力扣100题-滑动窗口</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
