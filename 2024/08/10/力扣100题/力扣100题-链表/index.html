@@ -16,22 +16,22 @@
   <meta name="author" content="jhxxxxx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.相交链表">
+    <meta name="description" content="1.相交链表 描述：给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。  思路一： 分别设置两个指针指向两个链表的表头，同时往后遍历，一旦到达链表尾就跳到另一个链表头开始遍历。如果两个链表存在交点，两个指针到达交点时经过的路径是相等的，恰好相遇。如果两个链表不存在交点，那么就分别遍历了两个链表的长度，A和B都">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣100题-链表">
+<meta property="og:title" content="力扣100题-链表（更新中）">
 <meta property="og:url" content="http://example.com/2024/08/10/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="jhxxxxx">
-<meta property="og:description" content="1.相交链表">
+<meta property="og:description" content="1.相交链表 描述：给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。  思路一： 分别设置两个指针指向两个链表的表头，同时往后遍历，一旦到达链表尾就跳到另一个链表头开始遍历。如果两个链表存在交点，两个指针到达交点时经过的路径是相等的，恰好相遇。如果两个链表不存在交点，那么就分别遍历了两个链表的长度，A和B都">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-10T02:58:58.000Z">
-<meta property="article:modified_time" content="2024-08-10T02:59:51.444Z">
+<meta property="article:modified_time" content="2024-08-31T07:12:27.156Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>力扣100题-链表 - jhxxxxx</title>
+  <title>力扣100题-链表（更新中） - jhxxxxx</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="力扣100题-链表"></span>
+            <span id="subtitle" data-typed-text="力扣100题-链表（更新中）"></span>
           
         </div>
 
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5 字
+          637 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -305,12 +305,56 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">力扣100题-链表</h1>
+            <h1 id="seo-header">力扣100题-链表（更新中）</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="1-相交链表"><a href="#1-相交链表" class="headerlink" title="1.相交链表"></a>1.相交链表</h3>
+                <h3 id="1-相交链表"><a href="#1-相交链表" class="headerlink" title="1.相交链表"></a>1.相交链表</h3><ul>
+<li>描述：给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</li>
+</ul>
+<h4 id="思路一："><a href="#思路一：" class="headerlink" title="思路一："></a>思路一：</h4><ul>
+<li><p>分别设置两个指针指向两个链表的表头，同时往后遍历，一旦到达链表尾就跳到另一个链表头开始遍历。如果两个链表存在交点，两个指针到达交点时经过的路径是相等的，恰好相遇。如果两个链表不存在交点，那么就分别遍历了两个链表的长度，A和B都是null，返回null。</p>
+</li>
+<li><p>代码一：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for singly-linked list.</span><br><span class="hljs-comment"># class ListNode:</span><br><span class="hljs-comment">#     def __init__(self, x):</span><br><span class="hljs-comment">#         self.val = x</span><br><span class="hljs-comment">#         self.next = None</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">getIntersectionNode</span>(<span class="hljs-params">self, headA: ListNode, headB: ListNode</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        A = headA<br>        B = headB<br>        <span class="hljs-keyword">while</span> A != B:<br>            A = A.<span class="hljs-built_in">next</span> <span class="hljs-keyword">if</span> A <span class="hljs-keyword">else</span> headB //如果A不是null就跳到<span class="hljs-built_in">next</span>，否则跳到链表B<br>            B = B.<span class="hljs-built_in">next</span> <span class="hljs-keyword">if</span> B <span class="hljs-keyword">else</span> headA<br>        <span class="hljs-keyword">return</span> A<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>代码二：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for singly-linked list.</span><br><span class="hljs-comment"># class ListNode:</span><br><span class="hljs-comment">#     def __init__(self, x):</span><br><span class="hljs-comment">#         self.val = x</span><br><span class="hljs-comment">#         self.next = None</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">getIntersectionNode</span>(<span class="hljs-params">self, headA: ListNode, headB: ListNode</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        A = headA<br>        B = headB<br>        <span class="hljs-keyword">while</span> A != B:<br>            <span class="hljs-keyword">if</span> A:         //简单直接的写法<br>                A = A.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">else</span>:<br>                A = headB<br>            <span class="hljs-keyword">if</span> B:<br>                B = B.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">else</span>:<br>                B = headA<br>        <span class="hljs-keyword">return</span> A<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-反转链表"><a href="#2-反转链表" class="headerlink" title="2.反转链表"></a>2.反转链表</h3><ul>
+<li>描述：给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。</li>
+</ul>
+<h4 id="思路一：-1"><a href="#思路一：-1" class="headerlink" title="思路一："></a>思路一：</h4><ul>
+<li>从链表头开始，对链表的节点进行逐个的翻转。除了cur指向当前的指针，增加pre指向前一个节点，tmp记录下一个节点</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">reverseList</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        pre = <span class="hljs-literal">None</span> //设置为空指针<span class="hljs-string">&quot;None&quot;</span><br>        cur = head<br>        <span class="hljs-keyword">while</span> cur:<br>            tmp = cur.<span class="hljs-built_in">next</span><br>            cur.<span class="hljs-built_in">next</span> = pre<br>            pre = cur<br>            cur = tmp<br>        <span class="hljs-keyword">return</span> pre<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="3-回文链表"><a href="#3-回文链表" class="headerlink" title="3.回文链表"></a>3.回文链表</h3><ul>
+<li>描述：给你一个单链表的头节点 <code>head</code> ，请你判断该链表是否为回文链表。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</li>
+</ul>
+<h4 id="思路一：-2"><a href="#思路一：-2" class="headerlink" title="思路一："></a>思路一：</h4><ul>
+<li>申请新空间，用另一个链表存储反转后的链表，逐个遍历比较两个链表是否相同即可。在python中可以用一个新列表存储链表里的数字，然后直接与它的反转进行比较。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        vals = [] //创建空列表<br>        cur = head<br>        <span class="hljs-keyword">while</span> cur:<br>            vals.append(cur.val)<br>            cur = cur.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> vals == vals[::-<span class="hljs-number">1</span>] <br>    //列表切片操作<span class="hljs-built_in">list</span>[start:end:step]，-<span class="hljs-number">1</span>表示将 vals 列表中的元素逆序排列<br></code></pre></td></tr></table></figure>
+
+<h4 id="思路二："><a href="#思路二：" class="headerlink" title="思路二："></a>思路二：</h4><ul>
+<li>先使用快慢指针找到链表的中点，反转后半部分链表，同时得到原链表尾的位置，同时往中间走进行比较。</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">middleNode</span>(<span class="hljs-params">self, head</span>):<br>        slow = head<br>        fast = head<br>        <span class="hljs-keyword">while</span> fast <span class="hljs-keyword">and</span> fast.<span class="hljs-built_in">next</span>:<br>            slow = slow.<span class="hljs-built_in">next</span><br>            fast = fast.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> slow<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">reverseList</span>(<span class="hljs-params">self, head</span>):<br>        pre = <span class="hljs-literal">None</span><br>        cur = head<br>        <span class="hljs-keyword">while</span> cur:<br>            tmp = cur.<span class="hljs-built_in">next</span><br>            cur.<span class="hljs-built_in">next</span> = pre<br>            pre = cur<br>            cur = tmp<br>        <span class="hljs-keyword">return</span> pre<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">if</span> head <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        mid = self.middleNode(head)<br>        head2 = self.reverseList(mid)<br>        <span class="hljs-keyword">while</span> head2:<br>            <span class="hljs-keyword">if</span> head.val != head2.val:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            head = head.<span class="hljs-built_in">next</span><br>            head2 = head2.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+
                 
               </div>
             
@@ -355,7 +399,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>力扣100题-链表</div>
+      <div>力扣100题-链表（更新中）</div>
       <div>http://example.com/2024/08/10/力扣100题/力扣100题-链表/</div>
     </div>
     <div class="license-meta">
@@ -399,6 +443,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/08/18/%E4%B9%A6%E7%94%9F/%E4%B9%A6%E7%94%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98%E8%90%A51-Linux%E5%9F%BA%E7%A1%80/" title="书生大模型实战营1-Linux基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">书生大模型实战营1-Linux基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
