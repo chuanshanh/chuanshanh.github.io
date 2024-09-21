@@ -1,0 +1,880 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="jhxxxxx">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MBTI 性格测试小程序Github地址：https:&#x2F;&#x2F;github.com&#x2F;chuanshanh&#x2F;jhxdada 0放在前面一些介绍： 是鱼皮的一个项目的第一阶段，做一个性格测试的小程序，为后面的AI答题应用平台做准备 由于算法设计比较简单，可以直接放在前端，所以没有后台 通过三个核心页面的开发学习了前端React的基于Taro的基本开发流程：界面—-样式—-逻辑 还有小程序开发过程中常见问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MBTI性格测试小程序项目">
+<meta property="og:url" content="http://example.com/2024/09/21/project/MBTI%E6%80%A7%E6%A0%BC%E6%B5%8B%E8%AF%95%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="jhxxxxx">
+<meta property="og:description" content="MBTI 性格测试小程序Github地址：https:&#x2F;&#x2F;github.com&#x2F;chuanshanh&#x2F;jhxdada 0放在前面一些介绍： 是鱼皮的一个项目的第一阶段，做一个性格测试的小程序，为后面的AI答题应用平台做准备 由于算法设计比较简单，可以直接放在前端，所以没有后台 通过三个核心页面的开发学习了前端React的基于Taro的基本开发流程：界面—-样式—-逻辑 还有小程序开发过程中常见问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-21T14:06:50.000Z">
+<meta property="article:modified_time" content="2024-09-21T14:20:30.698Z">
+<meta property="article:author" content="jhxxxxx">
+<meta property="article:tag" content="小程序">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>MBTI性格测试小程序项目 - jhxxxxx</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Plmq7gxo7cijNPpGkq0ItThR-MdYXbMMI","app_key":"yJX7KblqotgBVODHEqwiN0CE","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>jhxxxxx</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MBTI性格测试小程序项目"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-21 22:06" pubdate>
+          2024年9月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MBTI性格测试小程序项目</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="MBTI-性格测试小程序"><a href="#MBTI-性格测试小程序" class="headerlink" title="MBTI 性格测试小程序"></a><strong>MBTI 性格测试小程序</strong></h1><p>Github地址：<a target="_blank" rel="noopener" href="https://github.com/chuanshanh/jhxdada">https://github.com/chuanshanh/jhxdada</a></p>
+<h2 id="0放在前面"><a href="#0放在前面" class="headerlink" title="0放在前面"></a>0放在前面</h2><h5 id="一些介绍："><a href="#一些介绍：" class="headerlink" title="一些介绍："></a>一些介绍：</h5><ul>
+<li>是鱼皮的一个项目的第一阶段，做一个性格测试的小程序，为后面的AI答题应用平台做准备</li>
+<li>由于算法设计比较简单，可以直接放在前端，所以没有后台</li>
+<li>通过三个核心页面的开发学习了前端React的基于Taro的基本开发流程：<strong>界面—-样式—-逻辑</strong></li>
+<li>还有小程序开发过程中常见问题的解决：主要是小程序开发者工具的重载</li>
+<li>体验了CodeGeex这一AI开发工具：偶尔的代码自动补全是管点用的，但是问答能力还是不如GPT，对提示词要求还蛮高的。</li>
+</ul>
+<h2 id="一、MBTI-性格测试应用介绍"><a href="#一、MBTI-性格测试应用介绍" class="headerlink" title="一、MBTI 性格测试应用介绍"></a><strong>一、MBTI 性格测试应用介绍</strong></h2><p>参考项目：<a target="_blank" rel="noopener" href="https://www.16personalities.com/ch">https://www.16personalities.com/ch</a></p>
+<p>大致可以分为主页、答题页面、结果页面三个主要的页面</p>
+<h2 id="二、MBTI-实现方案介绍"><a href="#二、MBTI-实现方案介绍" class="headerlink" title="二、MBTI 实现方案介绍"></a><strong>二、MBTI 实现方案介绍</strong></h2><p>核心：题目、用户答案、评分规则</p>
+<h3 id="1、题目结构："><a href="#1、题目结构：" class="headerlink" title="1、题目结构："></a>1、题目结构：</h3><p>采用JSON格式，相比于拿选项作为key,每个选项单独存储在options里，方便进行扩展，并且更加灵活，可以进行排序。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;你通常更喜欢&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;result&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;I&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;独自工作&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;key&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;A&quot;</span><br>            <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;result&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;E&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;与他人合作&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;key&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;B&quot;</span><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2、用户答案结构"><a href="#2、用户答案结构" class="headerlink" title="2、用户答案结构"></a>2、用户答案结构</h3><p>用一个数组进行存储，而不是放在刚才的题目结构里，不需要传递完整的题目结构，大大节约了空间</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;A&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;A&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;A&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;B&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;A&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;A&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;A&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;B&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;B&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;A&quot;</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3、评分规则"><a href="#3、评分规则" class="headerlink" title="3、评分规则"></a>3、评分规则</h3><p>参考：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%82%81%E7%88%BE%E6%96%AF-%E5%B8%83%E9%87%8C%E6%A0%BC%E6%96%AF%E6%80%A7%E6%A0%BC%E5%88%86%E9%A1%9E%E6%B3%95">https://zh.wikipedia.org/wiki/邁爾斯-布里格斯性格分類法</a></p>
+<p>MBTI将心理差异分类为4个对立的组合（或称“<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%B3%95">二分法</a>”），一个人在每个组合中各拥有1个偏好[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%82%81%E7%88%BE%E6%96%AF-%E5%B8%83%E9%87%8C%E6%A0%BC%E6%96%AF%E6%80%A7%E6%A0%BC%E5%88%86%E9%A1%9E%E6%B3%95#cite_note-:1-8">7]</a>：</p>
+<ul>
+<li>内向与外向（I&#x2F;E）</li>
+<li>实感与直觉（S&#x2F;N）</li>
+<li>思考与情感（T&#x2F;F）</li>
+<li>判断与感知（J&#x2F;P）</li>
+</ul>
+<p>那么，每道题目会对应一个组合，选项来判断是其中的哪一个，然后根据所有结果的数量，对16种结果进行计数（含有这一字母的加一分），得分最高的就是结果。</p>
+<p>例子：</p>
+<p>给每个选择的答案对应设置一个 <strong>属性</strong>。简单举例，比如</p>
+<ul>
+<li>第一题 A 对应 I，B 对应 E</li>
+<li>第二题 A 对应 E，B 对应 I</li>
+<li>第三题 A 对应 S, B 对应 N</li>
+<li>第四题 A 对应 T, B 对应 F</li>
+<li>第五题 A 对应 P, B 对应 J</li>
+</ul>
+<p>那么如果用户选择了 [A,B,A,A,A]，可以算出用户有两个 I，一个 S ，一个 T 一个 P，很明显他是 ISTP 人格。</p>
+<p>评分结果JSON结构：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;resultProp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>      <span class="hljs-string">&quot;I&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-string">&quot;S&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-string">&quot;T&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-string">&quot;J&quot;</span><br>    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;resultDesc&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;忠诚可靠，被公认为务实，注重细节。&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;resultPicture&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;icon_url_istj&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;resultName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ISTJ（物流师）&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;resultProp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>      <span class="hljs-string">&quot;I&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-string">&quot;S&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-string">&quot;F&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-string">&quot;J&quot;</span><br>    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;resultDesc&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;善良贴心，以同情心和责任为特点。&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;resultPicture&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;icon_url_isfj&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;resultName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ISFJ（守护者）&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="三、MBTI-小程序-Demo-数据"><a href="#三、MBTI-小程序-Demo-数据" class="headerlink" title="三、MBTI 小程序 Demo 数据"></a><strong>三、MBTI 小程序 Demo 数据</strong></h2><h2 id="四、Taro-跨端小程序开发入门"><a href="#四、Taro-跨端小程序开发入门" class="headerlink" title="四、Taro 跨端小程序开发入门"></a><strong>四、Taro 跨端小程序开发入门</strong></h2><p><strong>环境准备：node:18.16.0  npm:9.5.1(原先：node:14.21.3, npm:8.1.2)</strong></p>
+<p>nodejs:</p>
+<p>nvm list查看已安装版本</p>
+<p>nvm install 16.13.0安装某个版本</p>
+<p>nvm use 18.16.0使用某个版本</p>
+<p>npm:</p>
+<p>npm install -g <a href="mailto:&#x6e;&#x70;&#x6d;&#64;&#57;&#46;&#x35;&#46;&#49;">&#x6e;&#x70;&#x6d;&#64;&#57;&#46;&#x35;&#46;&#49;</a></p>
+<p><strong>Taro下载：</strong></p>
+<p>Taro默认下载的是最新版本，最好还是指定版本下载</p>
+<p>解决：npm install -g @tarojs&#x2F;<a href="mailto:&#99;&#x6c;&#105;&#x40;&#x33;&#46;&#54;&#x2e;&#x32;&#56;">&#99;&#x6c;&#105;&#x40;&#x33;&#46;&#54;&#x2e;&#x32;&#56;</a></p>
+<p>Tato下载好后无法查看版本，报错无法识别taro</p>
+<p>解决：在环境变量的Path中增加D:\nodejs\node_global</p>
+<p><strong>初始化Taro框架：</strong></p>
+<p>前端采用React，组件库采用Taro UI</p>
+<p>终端：npm install 配置依赖，运行<strong>npm run build:weapp – –watch</strong></p>
+<p><strong>微信开发者工具打开项目：</strong>主要关注预览效果和编译报错</p>
+<p><strong>配置项目开发规范：</strong></p>
+<p>eslint:校验JS代码，给语法提示；</p>
+<p>typescript:校验语法，给语法提示</p>
+<p>prettier:代码美化工具，快速格式化代码</p>
+<p>当eslint和prettier发生冲突时，在eslint的配置文件里忽略掉它的对应的检查</p>
+<p><strong>测试组件Taro UI引入，来上手开发页面：</strong></p>
+<p>在app.ts即入口文件中全局引入：</p>
+<p>import ‘taro-ui&#x2F;dist&#x2F;style&#x2F;index.scss’ &#x2F;&#x2F; 引入组件样式 - 方式一</p>
+<p>然后尝试引入一个 taro-ui 组件。</p>
+<p><strong>前端经典开发顺序：页面—样式—逻辑（比如JS交互）</strong></p>
+<p><strong>开发示例页面：</strong></p>
+<p>1）找到应用全局配置文件 app.config.ts，新增页面路由（最上面的是打开默认的页面）</p>
+<p>2）复制已有页面文件，创建新页面</p>
+<p>3）根据自己的需要，复制组件，拼出完整页面</p>
+<p>4）根据自己的需求，定制开发</p>
+<p>5）演示页面之间的跳转：<strong>页面跳转（查</strong><a target="_blank" rel="noopener" href="https://taro-docs.jd.com/docs/router#%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC**%EF%BC%89">https://taro-docs.jd.com/docs/router#路由跳转**）</a>**</p>
+<h2 id="五、MBTI-跨端小程序开发实战"><a href="#五、MBTI-跨端小程序开发实战" class="headerlink" title="五、MBTI 跨端小程序开发实战"></a><strong>五、MBTI 跨端小程序开发实战</strong></h2><p><strong>1.全局规范和配置：</strong></p>
+<p>遵循函数式组件的写法：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json">export default () =&gt; <span class="hljs-punctuation">&#123;</span><br>  return (<br>    &lt;View className=<span class="hljs-string">&quot;index&quot;</span>&gt;<br>      &lt;Text&gt;Hello world!&lt;/Text&gt;<br>    &lt;/View&gt;<br>  );<br><span class="hljs-punctuation">&#125;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>修改应用标题：</p>
+<p>修改app.config.ts全局配置文件里的title</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs json">export default defineAppConfig(<span class="hljs-punctuation">&#123;</span><br>  pages<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    &#x27;pages/index/index&#x27;<br>  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  window<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    backgroundTextStyle<span class="hljs-punctuation">:</span> &#x27;light&#x27;<span class="hljs-punctuation">,</span><br>    navigationBarBackgroundColor<span class="hljs-punctuation">:</span> &#x27;#fff&#x27;<span class="hljs-punctuation">,</span><br>    navigationBarTitleText<span class="hljs-punctuation">:</span> &#x27;MBTI 性格测试&#x27;<span class="hljs-punctuation">,</span><br>    navigationBarTextStyle<span class="hljs-punctuation">:</span> &#x27;black&#x27;<br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>2.主页:先做内容，再把内容抽象成对象来增加样式</strong></p>
+<p>在app.scss里全局修改按钮主题色：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">.at-button--primary<span class="hljs-punctuation">&#123;</span><br>  background<span class="hljs-punctuation">:</span> #<span class="hljs-number">806497</span>;<br>  border-color<span class="hljs-punctuation">:</span> #<span class="hljs-number">806497</span>;<br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>主页核心页面代码：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 主页</span><br><span class="hljs-comment"> */</span><br>export default () =&gt; <span class="hljs-punctuation">&#123;</span><br>  return (<br>    &lt;View className=<span class="hljs-string">&quot;indexPage&quot;</span>&gt;<br>      &lt;View className=<span class="hljs-string">&quot;at-article__h1 title&quot;</span>&gt;MBTI性格测试&lt;/View&gt;<br>      &lt;View className=<span class="hljs-string">&quot;at-article__h2 subTitle&quot;</span>&gt;<br>        只需<span class="hljs-number">2</span>分钟，就能非常准确地描述出你是谁，以及你的性格特点<br>      &lt;/View&gt;<br>      &lt;AtButton type=<span class="hljs-string">&quot;primary&quot;</span> circle className=<span class="hljs-string">&quot;enterBtn&quot;</span>&gt;<br>        开始测试<br>      &lt;/AtButton&gt;<br>      &lt;Image<br>        className=<span class="hljs-string">&quot;HeaderBg&quot;</span><br>        style=<span class="hljs-string">&quot;width: 400px;height: 400px;&quot;</span><br>        src=<span class="hljs-punctuation">&#123;</span>HeaderBg<span class="hljs-punctuation">&#125;</span><br>      /&gt;<br>      &lt;GlobalFooter /&gt;<br>    &lt;/View&gt;<br>  );<br><span class="hljs-punctuation">&#125;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>主页核心样式代码：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs json">.indexPage<span class="hljs-punctuation">&#123;</span><br>  background<span class="hljs-punctuation">:</span> #A2C7D7;<br>  height<span class="hljs-punctuation">:</span> <span class="hljs-number">93</span>vh;<br>  .title<span class="hljs-punctuation">&#123;</span><br>    color<span class="hljs-punctuation">:</span>white;<br>    padding-top<span class="hljs-punctuation">:</span> <span class="hljs-number">48</span>px;<br>    text-align<span class="hljs-punctuation">:</span> center;<br>  <span class="hljs-punctuation">&#125;</span><br>  .subTitle<span class="hljs-punctuation">&#123;</span><br>    color<span class="hljs-punctuation">:</span>white;<br>    margin-bottom<span class="hljs-punctuation">:</span> <span class="hljs-number">48</span>px;<br>  <span class="hljs-punctuation">&#125;</span><br><br>  .enterBtn<span class="hljs-punctuation">&#123;</span><br>    width<span class="hljs-punctuation">:</span> <span class="hljs-number">60</span>vw;<br>  <span class="hljs-punctuation">&#125;</span><br><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>3.答题页面</strong></p>
+<p>开发步骤：</p>
+<p>1）先写<strong>页面</strong>：</p>
+<p>包括题目（序号+题目内容），选项（key+value）,切题按钮（下一题，查看结果，上一题）</p>
+<p>2）再调整<strong>样式</strong>：</p>
+<p>字体大小，按钮样式位置</p>
+<p>3）最后再写<strong>逻辑</strong>（上一题、下一题）</p>
+<p>先控制是否展示按钮</p>
+<p>控制切换，切换不同的题目和答案（useEffect），设定必须选了才能到下一题</p>
+<p>记录答案（JSON输出验证）</p>
+<p><strong>4、查看结果页面</strong></p>
+<p>1）先写页面：包含两个文字（resultName和resultDesc），一个按钮</p>
+<p>2)实现三个页面之间的跳转（通过给按钮增加时间，另外，从结果跳转到主页要使用reLauch,防止页面的无限增加）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json">&lt;AtButton<br>        type=<span class="hljs-string">&quot;primary&quot;</span><br>        circle<br>        className=<span class="hljs-string">&quot;enterBtn&quot;</span><br>        onClick=<span class="hljs-punctuation">&#123;</span>() =&gt; <span class="hljs-punctuation">&#123;</span><br>          Taro.navigateTo(<span class="hljs-punctuation">&#123;</span><br>            url<span class="hljs-punctuation">:</span> &#x27;/pages/doQuestion/index&#x27;<span class="hljs-punctuation">,</span><br>          <span class="hljs-punctuation">&#125;</span>);<br>        <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">&#125;</span><br>      &gt;<br>        开始测试<br>      &lt;/AtButton&gt;<br>&lt;AtButton<br>        type=<span class="hljs-string">&quot;primary&quot;</span><br>        circle<br>        className=<span class="hljs-string">&quot;enterBtn&quot;</span><br>        onClick=<span class="hljs-punctuation">&#123;</span>() =&gt; <span class="hljs-punctuation">&#123;</span><br>          Taro.reLaunch(<span class="hljs-punctuation">&#123;</span><br>            url<span class="hljs-punctuation">:</span> &#x27;/pages/index/index&#x27;<span class="hljs-punctuation">,</span><br>          <span class="hljs-punctuation">&#125;</span>);<br>        <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">&#125;</span><br>      &gt; <br>	      返回主页<br>      &lt;/AtButton&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>5、评分模块实现</strong></p>
+<p>可以根据AI工具CodeGeex尝试进行生成</p>
+<p>有两种算法实现：</p>
+<p>1.先把answerList转化为对应的人格列表optionCount（比如I，S，T，J）遍历所有question_result,然后遍历optionCount，有里面的字母就加1，看最终哪个得分最高</p>
+<p>2.提前统计optionCount里各个字母的数量，然后遍历所有question_result，直接获得得分，将最高分的结果返回</p>
+<p><strong>6、页面间数据传递</strong></p>
+<p>方法 1：url params</p>
+<p><a target="_blank" rel="noopener" href="https://taro-docs.jd.com/docs/apis/route/navigateTo">https://taro-docs.jd.com/docs/apis/route/navigateTo</a></p>
+<p>比如：result?answerList&#x3D;[A,B,C]1826449162109644801_0.9446173137808922</p>
+<p>方法 2：全局状态</p>
+<p><a target="_blank" rel="noopener" href="https://taro-docs.jd.com/docs/context#contextprovider">https://taro-docs.jd.com/docs/context#contextprovider</a></p>
+<p>方法 3：本地数据存储（推荐，较为简单）1826449162109644801_0.10902648018201178</p>
+<p><a target="_blank" rel="noopener" href="https://taro-docs.jd.com/docs/apis/storage/setStorageSync">https://taro-docs.jd.com/docs/apis/storage/setStorageSync</a></p>
+<p>采用方法3，在做完题目点击按钮，跳转前对answerList进行本地数据存储，然后在查看结果页面使用数据，注意特殊判断结果是否为空，是的话使用Toast进行保存</p>
+<p>PS：遇事不决 3 件套：清理工具缓存、重启项目、重启开发者工具。</p>
+<h2 id="六、小程序开发常用解决方案"><a href="#六、小程序开发常用解决方案" class="headerlink" title="六、小程序开发常用解决方案"></a><strong>六、小程序开发常用解决方案</strong></h2><h3 id="1、小程序调试发布"><a href="#1、小程序调试发布" class="headerlink" title="1、小程序调试发布"></a><strong>1、小程序调试发布</strong></h3><p>需要正式的 appId（到微信小程序官方申请），开发前多去看看微信小程序官方文档的审核要求。</p>
+<p>1）执行 build 命令打包代码</p>
+<p>删除 dist 目录，清理开发者工具缓存，执行 <code>build:weapp</code>，再次运行，验证效果。</p>
+<p>小程序发包有限制，一定要用 build 去构建，体积更小。</p>
+<p>2）有了正式的 AppId（测试号也可以）后，可以真机调试。</p>
+<p>3）在微信小程序开发工具上传代码</p>
+<h3 id="2、网络请求"><a href="#2、网络请求" class="headerlink" title="2、网络请求"></a><strong>2、网络请求</strong></h3><p><strong>请求库</strong></p>
+<p>主流的网络请求库是 <strong>Axios</strong>，但是小程序环境中无法直接使用 Axios。</p>
+<p>推荐使用适配器库：<a target="_blank" rel="noopener" href="https://github.com/bigmeow/taro-platform/tree/master/packages/axios-taro-adapter">https://github.com/bigmeow/taro-platform/tree/master/packages/axios-taro-adapter</a></p>
+<p><strong>请求代码生成</strong></p>
+<p>传统开发方式：每一个请求写一个发送请求的代码</p>
+<p>更高效的开发方式：根据后端 OpenAPI 规范的接口文档（比如 <strong>Swagger</strong>）自动生成请求，推荐：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@umijs/openapi">https://www.npmjs.com/package/@umijs/openapi</a></p>
+<p><strong>全局请求处理器</strong></p>
+<p>可以自己定义请求的全局参数、增加全局请求处理器、响应处理器等，参考 Axios 文档：<a target="_blank" rel="noopener" href="https://axios-http.com/docs/instance">https://axios-http.com/docs/instance</a> 。</p>
+<h3 id="3、状态管理"><a href="#3、状态管理" class="headerlink" title="3、状态管理"></a><strong>3、状态管理</strong></h3><p>多个页面（整个应用）共享变量，当变量发生变化时可以触发界面更新等。</p>
+<p>前端不熟悉的同学可以先忽略，自己<strong>创建一个全局 JS 变量、或者利用小程序存储能力（Storage）</strong>共享变量即可。</p>
+<p>对于熟悉前端的同学，推荐使用 Redux 的工具库实现全局状态管理：<a target="_blank" rel="noopener" href="https://react-redux.js.org/tutorials/quick-start">https://react-redux.js.org/tutorials/quick-start</a></p>
+<h3 id="4、用户登录"><a href="#4、用户登录" class="headerlink" title="4、用户登录"></a><strong>4、用户登录</strong></h3><p><strong>小程序登录原理</strong></p>
+<p>理论上用户打开小程序就可以自动登录，不需要自己点按钮，只不过获取不到昵称和头像罢了。</p>
+<p>以前我做小程序（23 年前）之所以要点按钮才能登录是为了获取用户头像信息，那会儿能获取到，现在获取不到了，直接前端调用 wx.login 就可以直接拿到 code，然后将 code 给后端，让后端从微信服务器获取 openId 即可。</p>
+<p>所有 wx 小程序的原生函数在 Taro 几乎都有对应的接口，比如 Taro.login &#x3D;&#x3D; wx.login。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.taro.zone/docs/apis/open-api/login/">https://docs.taro.zone/docs/apis/open-api/login/</a></p>
+<p><strong>怎么存储 session 和携带 cookie 信息？</strong></p>
+<p>相比于 web 开发，小程序除了可能要维护已登录用户信息外，还要自己额外维护 cookie。</p>
+<p>可以通过全局请求响应拦截器，登录响应后自动设置 Cookie 到本地存储、发请求时自动取出 Cookie 并设置到请求头中。</p>
+<h3 id="5、开发规范"><a href="#5、开发规范" class="headerlink" title="5、开发规范"></a><strong>5、开发规范</strong></h3><p>编写 <strong>typescript</strong> 数据模型，可以利用编辑器自动提示和校验，提升规范性。</p>
+<p>可以利用 CodeGeex 智能编程助手，根据示例数据自动生成 TypeScript 类型。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" class="category-chain-item">项目开发</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="print-no-link">#小程序</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MBTI性格测试小程序项目</div>
+      <div>http://example.com/2024/09/21/project/MBTI性格测试小程序项目/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>jhxxxxx</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/08/10/%E5%8A%9B%E6%89%A3100%E9%A2%98/%E5%8A%9B%E6%89%A3100%E9%A2%98-%E9%93%BE%E8%A1%A8/" title="力扣100题-链表（更新中）">
+                        <span class="hidden-mobile">力扣100题-链表（更新中）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Plmq7gxo7cijNPpGkq0ItThR-MdYXbMMI","appKey":"yJX7KblqotgBVODHEqwiN0CE","path":"window.location.pathname","placeholder":"说点什么叭~","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
