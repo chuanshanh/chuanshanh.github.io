@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>机器学习2021-CNN+Self-Attention</title>
+    <link href="/2024/10/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-CNN-Self-Attention/"/>
+    <url>/2024/10/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-CNN-Self-Attention/</url>
+    
+    <content type="html"><![CDATA[<h1 id="CNN-Self-Attention"><a href="#CNN-Self-Attention" class="headerlink" title="CNN &amp; Self-Attention"></a><strong>CNN &amp; Self-Attention</strong></h1><h2 id="Convolutional-Neural-Network-CNN"><a href="#Convolutional-Neural-Network-CNN" class="headerlink" title="Convolutional Neural Network(CNN)"></a>Convolutional Neural Network(CNN)</h2><p>专门用于影像处理</p><h3 id="引入：Image-classification"><a href="#引入：Image-classification" class="headerlink" title="引入：Image classification"></a>引入：Image classification</h3><ul><li>一张100<em>100的RGB图片，可以看作3</em>100*100，分别是channel，高，宽。</li><li>按照之前的想法，使用全连接网络，feature有3<em>100</em>100，假设sigmoid有100个，那么参数w将达到3*10^7个，参数越多，意味着模型越有弹性，但训练成本也会越高，越容易overfitting</li></ul><h3 id="Observation-1"><a href="#Observation-1" class="headerlink" title="Observation 1:"></a>Observation 1:</h3><ul><li>Identify some critical patterns,做图像分类时，只需要侦测到重要的pattern即可，不需要看整张图片</li></ul><h3 id="Simplification-1"><a href="#Simplification-1" class="headerlink" title="Simplification 1:"></a>Simplification 1:</h3><ul><li>划分receptive field，每个neuron只对一个receptive field的范围负责，并且receptive field彼此之间是可以有重叠，且同个范围可以有多个neuron负责</li><li>typical setting：<ul><li>all channels</li><li>kernel size: 3x3</li><li>Each receptive field has a set of neurons(e.g. 64)</li><li>stride&#x3D;1 or 2</li><li>超出影像范围时进行padding（补零或是其他）</li><li>the receptive fields cover the whole image</li></ul></li></ul><h3 id="Observation-2"><a href="#Observation-2" class="headerlink" title="Observation 2:"></a>Observation 2:</h3><ul><li>The same patterns appear in different region，相同的pattern可能会出现在图像上不同的位置</li></ul><h3 id="Simplification-1-1"><a href="#Simplification-1-1" class="headerlink" title="Simplification 1:"></a>Simplification 1:</h3><ul><li>让不同receptive field的neuron共享参数，parameter sharing，即它们的weight是相同的</li><li>typical setting:<ul><li>每个receptive field都有64个neuron侦测，即一组参数Filter1，Filter2，…,共享的参数就是这些filter，即对应不同receptive field的neuron的weight完全相同</li></ul></li></ul><h3 id="小节："><a href="#小节：" class="headerlink" title="小节："></a>小节：</h3><ul><li>最开始是fully connected network,然后划分多个receptive field，每个neuron不用看整张图片，再然后neuron之间可以共享参数，整个model bias是不断增加的，对模型的限制也是增加的。</li><li>补充：共享参数也可以理解为一个filter扫过整张图片</li></ul><h3 id="Observation-3"><a href="#Observation-3" class="headerlink" title="Observation 3:"></a>Observation 3:</h3><ul><li>Subsampling the pixels will not change the object,当缩小图片时，不会影响图像识别</li></ul><h3 id="Simplification-3"><a href="#Simplification-3" class="headerlink" title="Simplification 3:"></a>Simplification 3:</h3><ul><li>pooling：把图片变小，可以有效减少运算量。对细微的检测可能会有影响，所以不一定会使用。</li></ul><h3 id="The-whole-CNN"><a href="#The-whole-CNN" class="headerlink" title="The whole CNN:"></a>The whole CNN:</h3><p><strong>Image&#x3D;⇒Convolution&#x3D;⇒Pooling&#x3D;⇒Convolution&#x3D;⇒Pooling&#x3D;⇒Flatten&#x3D;⇒Fully Connected Layers&#x3D;⇒softmax&#x3D;⇒result</strong></p><ul><li>补充：CNN不适用于scaling和rotation， need data augmentation</li></ul><h2 id="Self-attention"><a href="#Self-attention" class="headerlink" title="Self-attention"></a>Self-attention</h2><h3 id="引入："><a href="#引入：" class="headerlink" title="引入："></a>引入：</h3><ul><li>之前的问题都是基于输入是a vector，并且输出是a scalar or a class。那么，当输入是a set of vectors(sequence)且长度不固定，而输出是scalars或classes时，问题该如何解决呢？</li><li>vector set as input举例：<ul><li>句子输入，每个词汇是一个向量，句子就是多个长度不一的向量</li><li>语音输入，每个frame对应一个向量</li><li>Graph,每个node对应一个向量</li></ul></li><li>输出方式:<ul><li>每个vector对应有一个label，例如词性标注</li><li>The whole sequence has a label,只有一个输出</li><li>模型自定义label的数量</li></ul></li><li>针对第一种情况：每个vector对应有一个label，例如sequence labeling<ul><li>fully-connected可以考虑一个window里的上下文，但始终是有极限的，如何才能考虑整个sequence呢？</li><li>这就是self-attention可以解决的问题</li></ul></li></ul><h3 id="实现细节："><a href="#实现细节：" class="headerlink" title="实现细节："></a>实现细节：</h3><ul><li>输入时input或者是a hidden layer,self-attention 可以和fully-connected交替使用</li><li>针对每个输入向量ai,通过和对应的Wq,Wk,Wv矩阵相乘，有对应的q,k,v向量，每个qi和所有的ki进行dot-product（表示两个向量间的关联程度），再和分别所有的vi相乘在相加得到bi。每一个bi都按照这样的方式得出，就是self-attention所做的事情。所有的bi是同时计算的，是<strong>parallel</strong>的</li><li>进阶版本Multi-head self-attention:<ul><li>当有different type of relevance时，可以控制产生多种不同的q,k,v,最后再乘以一个矩阵来得到bi</li></ul></li><li>Positional Encoding:<ul><li>self-attention里本身是没有位置信息的</li><li>可以为每个position人为设置一个unique positional vector ei</li></ul></li></ul><h3 id="Application"><a href="#Application" class="headerlink" title="Application:"></a>Application:</h3><ul><li>Transfomer</li><li>Bert(NLP)</li><li>Speech</li><li>Image</li></ul><h3 id="Self-attention-vs-CNN"><a href="#Self-attention-vs-CNN" class="headerlink" title="Self-attention vs CNN:"></a>Self-attention vs CNN:</h3><ul><li>CNN可以看作是简化版的self-attention。而self-attention是复杂化的CNN，可以看作是自己学出来receptive field。</li><li>self-attention is good for more data,而CNN is good for less data</li></ul><h3 id="Self-attention-vs-RNN"><a href="#Self-attention-vs-RNN" class="headerlink" title="Self-attention vs RNN:"></a>Self-attention vs RNN:</h3><p>目前使用RNN的应用基本逐渐都被self-attention取代了</p><ul><li>RNN对于最右边的输出要考虑最左边的输入是很困难的，除非该信息一直存在memory里</li><li>而对于self-attention只需把对应的query和key进行match相乘即可得到（天涯若比例）</li><li>RNN是nonparallel的</li><li>self-attention是parallel的，效率更高</li></ul><p>self-attention特点：运算量比较大，相当于广义的transformer</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>机器学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>机器学习2021-Deep-Learning</title>
+    <link href="/2024/10/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-Deep-Learning/"/>
+    <url>/2024/10/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-Deep-Learning/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a><strong>Deep Learning</strong></h1><h3 id="1、General-Guidance"><a href="#1、General-Guidance" class="headerlink" title="1、General Guidance"></a>1、General Guidance</h3><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul><li><p>1、并不是所有的在测试集上表现结果差都是overfitting,要先看在training data上的los怎么样？</p><ul><li>large:<ul><li>model bias（模型的限制）——&gt;增加模型的复杂程度,function的范围</li><li>optimize(局部最优解)——&gt;增加找function的力度</li></ul></li><li>small:<ul><li>loss on testing data<ul><li>large: overfitting<ul><li>more train</li><li>data augmentaion</li><li>make model simpler</li></ul></li><li>small: 😀</li></ul></li></ul></li><li>可视化：<ul><li><strong>当模型的复杂度增加，training loss会越来越小，但是testing loss会先减少后又增大</strong></li><li>这时候考虑overfitting或mismatch</li></ul></li><li>Optimization Issue<ul><li>先从简单的模型开始，容易optimization</li><li>当deeper network不能获得smaller loss on training data⇒Optimization Issue</li></ul></li></ul></li><li><p>2、有的时候在public的测试数据上结果很好，但是在pivate的数据上测试就不行了，主要还是因为可能测试次数过多，模型就会过于依赖public的数据，在实际的情况下效果反而打折扣</p><ul><li><p>solution：</p><p>N-fold cross validation</p><ul><li>将training set 等价划分为三份三次，其中一份用于validation,每次的位置不同</li><li>不同模型对这三次操作，结果取平均值，再用结果最好的模型去测Testing data</li></ul></li></ul></li></ul><h3 id="2、When-Gradient-Is-Small-Local-Minimum-and-Saddle-Point"><a href="#2、When-Gradient-Is-Small-Local-Minimum-and-Saddle-Point" class="headerlink" title="2、When Gradient Is Small: Local Minimum and Saddle Point"></a>2、When Gradient Is Small: Local Minimum and Saddle Point</h3><h3 id="Optimization-fails"><a href="#Optimization-fails" class="headerlink" title="Optimization fails:"></a>Optimization fails:</h3><ul><li><p>分析：loss not small enough</p><ul><li><p>gradient&#x3D;0，所以导致了优化停止，一般有两种情况，统称为</p><p>critical point</p><p>：</p><ul><li><strong>local minima</strong></li><li><strong>saddle point</strong></li></ul></li><li><p>Which one would be?</p><ul><li>使用Taler Series Approximation:用当前点来表示估计周围点</li><li>总之，可以根据周围点的状态来判断当前的点是local minima, local maxima还是saddle point</li><li>涉及到eigen value,eigen vector⇒计算量较大，实际不使用这种方法</li></ul></li></ul></li><li><p>local minima Vs saddle point</p><ul><li>一维的local minima在二维来看就是saddle point</li><li>一般训练的参数有百万千万，那么维度也非常的高，所以大多为saddle point,<strong>local minima很不常见</strong></li></ul></li></ul><h3 id="3、Tips-for-Training-Batch-and-Momentum"><a href="#3、Tips-for-Training-Batch-and-Momentum" class="headerlink" title="3、Tips for Training: Batch and Momentum"></a>3、Tips for Training: Batch and Momentum</h3><h3 id="batch"><a href="#batch" class="headerlink" title="batch:"></a>batch:</h3><ul><li>定义：将所有参数进行划分为多个batch，多次update来完成所有参数的更新gradient</li></ul><table><thead><tr><th></th><th>Small Batch</th><th>Large Batch</th><th>desc</th></tr></thead><tbody><tr><td>Speed for one update(no parallel)</td><td>Faster</td><td>Slower</td><td></td></tr><tr><td>Speed for one update(with parallel)</td><td>Same</td><td>Same(not too large)</td><td></td></tr><tr><td>Time for one epoch</td><td>Slower</td><td><strong><code>Faster</code></strong></td><td>训练速度更快</td></tr><tr><td>Gradient</td><td>Noisy</td><td>Stable</td><td></td></tr><tr><td>Optimization(training)</td><td><strong><code>Better</code></strong></td><td>Worse</td><td></td></tr><tr><td>Generalization(testing)</td><td><strong><code>Better</code></strong></td><td></td><td></td></tr></tbody></table><p>Small Batch更容易进入flat minima,而large Batch更容易进入有sharp minima。 | Worse</p><p>当在training上两者效果类似，但是在testing上不一样，就有overfitting的因素了。 | |</p><h3 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum:"></a>Momentum:</h3><ul><li>参照物理世界，一个小球从高处滚下来，很可能因为惯性逃脱critical point</li><li>一般的gradient descent:往Gradient的反方向移动</li><li>所以可以给每次movement增加一个movement of last step<ul><li>movement &#x3D; movement of last step - gadient</li><li>或者可以理解为movement是之前所有gradient的一个加权和</li></ul></li></ul><h3 id="总结：2和3—Optimization-issue"><a href="#总结：2和3—Optimization-issue" class="headerlink" title="总结：2和3—Optimization issue"></a>总结：2和3—Optimization issue</h3><ul><li>训练停止处的critical points处gradient&#x3D;0</li><li>critical points有两种情况：saddle points or local minima<ul><li>具体是哪一种可以由Hessian matrix判断</li><li>也可以通过Hessian matrix来逃离saddle points</li><li>local minima is rare</li></ul></li><li>Smaller batch size and momentum help escape critical points</li></ul><h3 id="4、Tips-for-Training-Adaptive-Learning-Rate"><a href="#4、Tips-for-Training-Adaptive-Learning-Rate" class="headerlink" title="4、Tips for Training: Adaptive Learning Rate"></a>4、Tips for Training: Adaptive Learning Rate</h3><ul><li><p>首先，Training stuck 不等于Small Gadient（可能是在一个很陡峭的峡谷里来回碰撞，到不了谷底）</p></li><li><p>多数training在走到critical point之前就已经停止了</p></li><li><p>这时候考虑learning rate，即update的步长</p><ul><li>gradient越小，表示越平滑，lr可以大一点；</li><li>gradient越大，表示越陡峭，lr可以小一点；</li><li>单纯地调小learning rate并不能解决问题，因为可能步长太小而一直无法到达</li></ul></li><li><p>所以，需要动态地修改学习率：</p><ul><li><p>增加分母：</p><ul><li>Root Mean Sequare:和之前所有的g都有关系，lr会随着时间的增长而变小 ，是所有之前的g的均方开根号<ul><li>局限：就算同一个参数，它需要的lr也会发生变化</li></ul></li><li>引出RMS Prop：σ_i^t &#x3D; ρσ_i^{t-1} + (1-ρ)(g_i^t)^2<ul><li>决定当前算出来的g有多重要</li></ul></li><li>最常用的optimization策略：Adam:RMS Prop + Momentum</li></ul></li><li><p>修改分子：</p><ul><li><p>使用Root Mean Sequare在一段时间后，一直往同一个方向走，它垂直方向的学习率会变大，会突然爆发，虽然最后会回归</p></li><li><p>引入learning rate scheduling, 让原先的常数随着时间变化而变化，可以解决爆发的问题</p><ul><li>Learning Rate Decay:从一个高值开始逐渐减少</li><li>Warm up：先增加后减小</li></ul></li></ul></li></ul></li><li><p>总结：**<code>learning rate improvement+ momentum</code>**</p></li></ul><h3 id="5、Loss-Function-Classification"><a href="#5、Loss-Function-Classification" class="headerlink" title="5、Loss Function: Classification"></a>5、Loss Function: Classification</h3><ul><li>原先的regression的输出是一个数值，在此基础上进行修改，最后几个步骤也要扩展为向量操作</li><li>得到的y要先经过sotfmax做规范化，把数值的范围变成0-1</li><li>再计算e,就是y和y_hat之间的距离<ul><li>MSE</li><li><strong><code>Cross-entropy</code> 效果更好</strong></li><li>说明：改变loss function 也会改变optimization的难度</li></ul></li></ul><h3 id="6、Batch-Normalization-（optimization-tips）"><a href="#6、Batch-Normalization-（optimization-tips）" class="headerlink" title="6、Batch Normalization （optimization tips）"></a>6、Batch Normalization （optimization tips）</h3><p><a href="https://www.youtube.com/watch?v=BABPWOkSbLE">https://www.youtube.com/watch?v=BABPWOkSbLE</a></p><ul><li>背景：<ul><li>当只有两个dimension时，loss的error surface是一个碗型（椭圆形）的，training可能还是不好做，会发生梯度爆炸的情况，体现在一个w对loss的影响大，而另一个很小。那么是否可以改变error surface的形状，变成一个很正的一个个圆形</li></ul></li><li>分析：<ul><li>再往里想一层，就是input的feature，每个dimension的值的scale差距比较大，导致了training的不容易</li></ul></li><li>引出：<ul><li>对feature进行一个normalization，把数值的范围进行一个规范化，可以使梯度下降的速度更快</li><li>Deep Learning：除了对输入进行normalization，可以在中间层进行多次的normalization，实际操作过程中是分batch进行的所以称作<strong>batch normalization</strong>。</li></ul></li><li>testing:<ul><li>在测试或是实际应用的不是，不能等到集齐一个batch size再进行计算，所以实际pytorch会在training的时候计算moving average of U and 6，在testing的时候可以直接使用，那么每笔新的资料进来都可以直接做一次运算。</li></ul></li><li>效果：<ul><li>使用了batch normalization后，可以在更短的时间内到达一样的正确率，并且，使用了normalization后，learning rate（步长）可以适当的增大</li></ul></li><li>反思：<ul><li>how does batch normalization help optimization?<ul><li>change the landscape of error surface.</li></ul></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>机器学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>机器学习2021-HW1</title>
     <link href="/2024/09/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-HW1/"/>
     <url>/2024/09/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-HW1/</url>
@@ -46,31 +96,6 @@
     <tags>
       
       <tag>笔记</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>09.24-商学院招聘会</title>
-    <link href="/2024/09/24/%E7%94%9F%E6%B4%BB%E4%B8%8E%E6%8A%80%E6%9C%AF/09-24-%E5%95%86%E5%AD%A6%E9%99%A2%E6%8B%9B%E8%81%98%E4%BC%9A/"/>
-    <url>/2024/09/24/%E7%94%9F%E6%B4%BB%E4%B8%8E%E6%8A%80%E6%9C%AF/09-24-%E5%95%86%E5%AD%A6%E9%99%A2%E6%8B%9B%E8%81%98%E4%BC%9A/</url>
-    
-    <content type="html"><![CDATA[<h1 id="9-24—商学院招聘会"><a href="#9-24—商学院招聘会" class="headerlink" title="9.24—商学院招聘会"></a>9.24—商学院招聘会</h1><h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><ul><li>偶然参加商学院的针对应届毕业生的招聘会，很多企业，很多学生，旁听旁观了解了很多。</li></ul><h3 id="小整理一下："><a href="#小整理一下：" class="headerlink" title="小整理一下："></a>小整理一下：</h3><ul><li>企业类型：<ul><li>商学相关的：各种银行、证券、基金</li><li>互联网公司：华为、拼多多、蔚来汽车</li><li>传统公司：做产品进出口的，招聘的，教育的，直播的等等</li></ul></li><li>招聘岗位：<ul><li>运营：采购运营，用户运营，直播运营</li><li>销售：管培生，产品销售：To B较多</li><li>财务：财务助理</li><li>行政：行政助理</li><li>少量技术岗</li></ul></li><li>流程：<ul><li>学生直接提交纸质简历，加微信留联系方式</li><li>官网投递，了解岗位内容，面试流程</li><li>HR现场根据简历建议适配岗位</li></ul></li></ul><h3 id="感受和体会："><a href="#感受和体会：" class="headerlink" title="感受和体会："></a>感受和体会：</h3><ul><li>整个环境人很多，很热闹，像菜市场，但是也可以挖掘到不少有意思的信息</li><li>看求职学生：<ul><li>简历之间的差别还挺大的。有得只写了三分之二、排版很雷人、内容很水，有的写的满满当当、实习经历丰富。大部分企业都收到了一本的简历，企业的选择还是很多的，挑选合适的人也并不容易。</li><li>基本每个人都打印了一本的简历去多个企业那里去投递，向HR了解相关信息</li></ul></li><li>看企业：<ul><li>首先有几十家企业，之间的差别也很大。有的宣传海报做得很土，文字一大堆，也不好看；有的就很贴最近流行的风格（AI，动画，潮流），文字不多，重点突出。</li><li>我最喜欢、感觉人也比较多的一家企业：直接写明薪资和岗位描述，很直观，很简洁。有的企业甚至薪资也不能问，有点令人无语。</li><li>遇到一个超级专业厉害的HR，很吸引人，我旁观了好久，太有魅力了！：<ul><li>表达特别地令人舒服、有逻辑、自然，好棒！</li><li>会认真针对地看每个学生的简历给出匹配岗位的建议，面试准备的建议</li><li>会提出还有隐藏岗位（不对外招，只招一个）给合适的学生</li><li>会说清楚岗位的特点，比如一个24w每年的岗位要每年6个月的时间外派出去</li><li>会说招聘岗位的团队头子是校友，拉近与学生的距离</li><li>会说清面试安排，提醒加联系方式，流程很清晰</li><li>会说明岗位的职业路径，发展机会，让人对岗位有一个更加清除的认知</li></ul></li></ul></li></ul><h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><ul><li>通过现场招聘会的体验，最大的收获是真正站在企业的角度去看整个招聘，很有意思</li><li>学生总是很多的，要怎么挑选合适人选，其实就是要迅速判断应聘者的各个方面<ul><li><strong>实习经历</strong>，项目经历是否和岗位适配</li><li><strong>语言能力</strong>，一些涉外的工作很看重（有一个岗位是雅思7.5才会很稳的通过笔试）</li><li>面试考察：<strong>表达能力、沟通能力、应变能力、团队合作能力</strong></li><li>应聘者对岗位的<strong>意向程度</strong></li><li>缘分：应聘者的<strong>学校，专业</strong>这些</li></ul></li><li>看到不少硕士学历的同学也是去投递运营、销售这些岗位，感觉和本科生差别不大</li><li>我的感受：<ul><li>好好规划用好接下来的四年，不仅要提升专业技能，提高通用的解决问题的能力，还要关注各种软技能的提升，that’s even more important!</li><li>感受到了招聘的激烈，但还好，我并没有为此焦虑，提高期待，降低预期，that’s all!</li></ul></li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>人文</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>活动</tag>
       
     </tags>
     

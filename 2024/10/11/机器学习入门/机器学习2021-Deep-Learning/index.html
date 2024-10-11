@@ -16,24 +16,22 @@
   <meta name="author" content="jhxxxxx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="机器学习基本概念总结">
+    <meta name="description" content="Deep Learning1、General Guidance总结： 1、并不是所有的在测试集上表现结果差都是overfitting,要先看在training data上的los怎么样？  large: model bias（模型的限制）——&gt;增加模型的复杂程度,function的范围 optimize(局部最优解)——&gt;增加找function的力度   small: loss on">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习-基本概念">
-<meta property="og:url" content="http://example.com/2024/09/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:title" content="机器学习2021-Deep-Learning">
+<meta property="og:url" content="http://example.com/2024/10/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-Deep-Learning/index.html">
 <meta property="og:site_name" content="jhxxxxx">
-<meta property="og:description" content="机器学习基本概念总结">
+<meta property="og:description" content="Deep Learning1、General Guidance总结： 1、并不是所有的在测试集上表现结果差都是overfitting,要先看在training data上的los怎么样？  large: model bias（模型的限制）——&gt;增加模型的复杂程度,function的范围 optimize(局部最优解)——&gt;增加找function的力度   small: loss on">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/ml1.jpg">
-<meta property="article:published_time" content="2024-09-24T11:49:58.000Z">
-<meta property="article:modified_time" content="2024-09-24T12:13:48.883Z">
+<meta property="article:published_time" content="2024-10-11T02:54:00.000Z">
+<meta property="article:modified_time" content="2024-10-11T02:56:52.737Z">
 <meta property="article:author" content="jhxxxxx">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/ml1.jpg">
   
   
   
-  <title>机器学习-基本概念 - jhxxxxx</title>
+  <title>机器学习2021-Deep-Learning - jhxxxxx</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="机器学习-基本概念"></span>
+            <span id="subtitle" data-typed-text="机器学习2021-Deep-Learning"></span>
           
         </div>
 
@@ -239,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-24 19:49" pubdate>
-          2024年9月24日 晚上
+        <time datetime="2024-10-11 10:54" pubdate>
+          2024年10月11日 上午
         </time>
       </span>
     
@@ -251,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10 字
+          1.3k 字
         
       </span>
     
@@ -262,7 +260,7 @@
         
         
         
-          1 分钟
+          11 分钟
         
       </span>
     
@@ -307,12 +305,238 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">机器学习-基本概念</h1>
+            <h1 id="seo-header">机器学习2021-Deep-Learning</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="机器学习基本概念总结"><a href="#机器学习基本概念总结" class="headerlink" title="机器学习基本概念总结"></a>机器学习基本概念总结</h1><p><img src="/img/ml1.jpg" srcset="/img/loading.gif" lazyload alt="思维导图"></p>
+                <h1 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a><strong>Deep Learning</strong></h1><h3 id="1、General-Guidance"><a href="#1、General-Guidance" class="headerlink" title="1、General Guidance"></a>1、General Guidance</h3><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><p>1、并不是所有的在测试集上表现结果差都是overfitting,要先看在training data上的los怎么样？</p>
+<ul>
+<li>large:<ul>
+<li>model bias（模型的限制）——&gt;增加模型的复杂程度,function的范围</li>
+<li>optimize(局部最优解)——&gt;增加找function的力度</li>
+</ul>
+</li>
+<li>small:<ul>
+<li>loss on testing data<ul>
+<li>large: overfitting<ul>
+<li>more train</li>
+<li>data augmentaion</li>
+<li>make model simpler</li>
+</ul>
+</li>
+<li>small: 😀</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可视化：<ul>
+<li><strong>当模型的复杂度增加，training loss会越来越小，但是testing loss会先减少后又增大</strong></li>
+<li>这时候考虑overfitting或mismatch</li>
+</ul>
+</li>
+<li>Optimization Issue<ul>
+<li>先从简单的模型开始，容易optimization</li>
+<li>当deeper network不能获得smaller loss on training data⇒Optimization Issue</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2、有的时候在public的测试数据上结果很好，但是在pivate的数据上测试就不行了，主要还是因为可能测试次数过多，模型就会过于依赖public的数据，在实际的情况下效果反而打折扣</p>
+<ul>
+<li><p>solution：</p>
+<p>N-fold cross validation</p>
+<ul>
+<li>将training set 等价划分为三份三次，其中一份用于validation,每次的位置不同</li>
+<li>不同模型对这三次操作，结果取平均值，再用结果最好的模型去测Testing data</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、When-Gradient-Is-Small-Local-Minimum-and-Saddle-Point"><a href="#2、When-Gradient-Is-Small-Local-Minimum-and-Saddle-Point" class="headerlink" title="2、When Gradient Is Small: Local Minimum and Saddle Point"></a>2、When Gradient Is Small: Local Minimum and Saddle Point</h3><h3 id="Optimization-fails"><a href="#Optimization-fails" class="headerlink" title="Optimization fails:"></a>Optimization fails:</h3><ul>
+<li><p>分析：loss not small enough</p>
+<ul>
+<li><p>gradient&#x3D;0，所以导致了优化停止，一般有两种情况，统称为</p>
+<p>critical point</p>
+<p>：</p>
+<ul>
+<li><strong>local minima</strong></li>
+<li><strong>saddle point</strong></li>
+</ul>
+</li>
+<li><p>Which one would be?</p>
+<ul>
+<li>使用Taler Series Approximation:用当前点来表示估计周围点</li>
+<li>总之，可以根据周围点的状态来判断当前的点是local minima, local maxima还是saddle point</li>
+<li>涉及到eigen value,eigen vector⇒计算量较大，实际不使用这种方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>local minima Vs saddle point</p>
+<ul>
+<li>一维的local minima在二维来看就是saddle point</li>
+<li>一般训练的参数有百万千万，那么维度也非常的高，所以大多为saddle point,<strong>local minima很不常见</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="3、Tips-for-Training-Batch-and-Momentum"><a href="#3、Tips-for-Training-Batch-and-Momentum" class="headerlink" title="3、Tips for Training: Batch and Momentum"></a>3、Tips for Training: Batch and Momentum</h3><h3 id="batch"><a href="#batch" class="headerlink" title="batch:"></a>batch:</h3><ul>
+<li>定义：将所有参数进行划分为多个batch，多次update来完成所有参数的更新gradient</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Small Batch</th>
+<th>Large Batch</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Speed for one update(no parallel)</td>
+<td>Faster</td>
+<td>Slower</td>
+<td></td>
+</tr>
+<tr>
+<td>Speed for one update(with parallel)</td>
+<td>Same</td>
+<td>Same(not too large)</td>
+<td></td>
+</tr>
+<tr>
+<td>Time for one epoch</td>
+<td>Slower</td>
+<td><strong><code>Faster</code></strong></td>
+<td>训练速度更快</td>
+</tr>
+<tr>
+<td>Gradient</td>
+<td>Noisy</td>
+<td>Stable</td>
+<td></td>
+</tr>
+<tr>
+<td>Optimization(training)</td>
+<td><strong><code>Better</code></strong></td>
+<td>Worse</td>
+<td></td>
+</tr>
+<tr>
+<td>Generalization(testing)</td>
+<td><strong><code>Better</code></strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Small Batch更容易进入flat minima,而large Batch更容易进入有sharp minima。 | Worse</p>
+<p>当在training上两者效果类似，但是在testing上不一样，就有overfitting的因素了。 | |</p>
+<h3 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum:"></a>Momentum:</h3><ul>
+<li>参照物理世界，一个小球从高处滚下来，很可能因为惯性逃脱critical point</li>
+<li>一般的gradient descent:往Gradient的反方向移动</li>
+<li>所以可以给每次movement增加一个movement of last step<ul>
+<li>movement &#x3D; movement of last step - gadient</li>
+<li>或者可以理解为movement是之前所有gradient的一个加权和</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结：2和3—Optimization-issue"><a href="#总结：2和3—Optimization-issue" class="headerlink" title="总结：2和3—Optimization issue"></a>总结：2和3—Optimization issue</h3><ul>
+<li>训练停止处的critical points处gradient&#x3D;0</li>
+<li>critical points有两种情况：saddle points or local minima<ul>
+<li>具体是哪一种可以由Hessian matrix判断</li>
+<li>也可以通过Hessian matrix来逃离saddle points</li>
+<li>local minima is rare</li>
+</ul>
+</li>
+<li>Smaller batch size and momentum help escape critical points</li>
+</ul>
+<h3 id="4、Tips-for-Training-Adaptive-Learning-Rate"><a href="#4、Tips-for-Training-Adaptive-Learning-Rate" class="headerlink" title="4、Tips for Training: Adaptive Learning Rate"></a>4、Tips for Training: Adaptive Learning Rate</h3><ul>
+<li><p>首先，Training stuck 不等于Small Gadient（可能是在一个很陡峭的峡谷里来回碰撞，到不了谷底）</p>
+</li>
+<li><p>多数training在走到critical point之前就已经停止了</p>
+</li>
+<li><p>这时候考虑learning rate，即update的步长</p>
+<ul>
+<li>gradient越小，表示越平滑，lr可以大一点；</li>
+<li>gradient越大，表示越陡峭，lr可以小一点；</li>
+<li>单纯地调小learning rate并不能解决问题，因为可能步长太小而一直无法到达</li>
+</ul>
+</li>
+<li><p>所以，需要动态地修改学习率：</p>
+<ul>
+<li><p>增加分母：</p>
+<ul>
+<li>Root Mean Sequare:和之前所有的g都有关系，lr会随着时间的增长而变小 ，是所有之前的g的均方开根号<ul>
+<li>局限：就算同一个参数，它需要的lr也会发生变化</li>
+</ul>
+</li>
+<li>引出RMS Prop：σ_i^t &#x3D; ρσ_i^{t-1} + (1-ρ)(g_i^t)^2<ul>
+<li>决定当前算出来的g有多重要</li>
+</ul>
+</li>
+<li>最常用的optimization策略：Adam:RMS Prop + Momentum</li>
+</ul>
+</li>
+<li><p>修改分子：</p>
+<ul>
+<li><p>使用Root Mean Sequare在一段时间后，一直往同一个方向走，它垂直方向的学习率会变大，会突然爆发，虽然最后会回归</p>
+</li>
+<li><p>引入learning rate scheduling, 让原先的常数随着时间变化而变化，可以解决爆发的问题</p>
+<ul>
+<li>Learning Rate Decay:从一个高值开始逐渐减少</li>
+<li>Warm up：先增加后减小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>总结：**<code>learning rate improvement+ momentum</code>**</p>
+</li>
+</ul>
+<h3 id="5、Loss-Function-Classification"><a href="#5、Loss-Function-Classification" class="headerlink" title="5、Loss Function: Classification"></a>5、Loss Function: Classification</h3><ul>
+<li>原先的regression的输出是一个数值，在此基础上进行修改，最后几个步骤也要扩展为向量操作</li>
+<li>得到的y要先经过sotfmax做规范化，把数值的范围变成0-1</li>
+<li>再计算e,就是y和y_hat之间的距离<ul>
+<li>MSE</li>
+<li><strong><code>Cross-entropy</code> 效果更好</strong></li>
+<li>说明：改变loss function 也会改变optimization的难度</li>
+</ul>
+</li>
+</ul>
+<h3 id="6、Batch-Normalization-（optimization-tips）"><a href="#6、Batch-Normalization-（optimization-tips）" class="headerlink" title="6、Batch Normalization （optimization tips）"></a>6、Batch Normalization （optimization tips）</h3><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=BABPWOkSbLE">https://www.youtube.com/watch?v=BABPWOkSbLE</a></p>
+<ul>
+<li>背景：<ul>
+<li>当只有两个dimension时，loss的error surface是一个碗型（椭圆形）的，training可能还是不好做，会发生梯度爆炸的情况，体现在一个w对loss的影响大，而另一个很小。那么是否可以改变error surface的形状，变成一个很正的一个个圆形</li>
+</ul>
+</li>
+<li>分析：<ul>
+<li>再往里想一层，就是input的feature，每个dimension的值的scale差距比较大，导致了training的不容易</li>
+</ul>
+</li>
+<li>引出：<ul>
+<li>对feature进行一个normalization，把数值的范围进行一个规范化，可以使梯度下降的速度更快</li>
+<li>Deep Learning：除了对输入进行normalization，可以在中间层进行多次的normalization，实际操作过程中是分batch进行的所以称作<strong>batch normalization</strong>。</li>
+</ul>
+</li>
+<li>testing:<ul>
+<li>在测试或是实际应用的不是，不能等到集齐一个batch size再进行计算，所以实际pytorch会在training的时候计算moving average of U and 6，在testing的时候可以直接使用，那么每笔新的资料进来都可以直接做一次运算。</li>
+</ul>
+</li>
+<li>效果：<ul>
+<li>使用了batch normalization后，可以在更短的时间内到达一样的正确率，并且，使用了normalization后，learning rate（步长）可以适当的增大</li>
+</ul>
+</li>
+<li>反思：<ul>
+<li>how does batch normalization help optimization?<ul>
+<li>change the landscape of error surface.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                 
               </div>
@@ -358,8 +582,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>机器学习-基本概念</div>
-      <div>http://example.com/2024/09/24/机器学习入门/机器学习-基本概念/</div>
+      <div>机器学习2021-Deep-Learning</div>
+      <div>http://example.com/2024/10/11/机器学习入门/机器学习2021-Deep-Learning/</div>
     </div>
     <div class="license-meta">
       
@@ -371,7 +595,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月24日</div>
+          <div>2024年10月11日</div>
         </div>
       
       
@@ -403,9 +627,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-HW1/" title="机器学习2021-HW1">
+                      <a href="/2024/10/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-CNN-Self-Attention/" title="机器学习2021-CNN+Self-Attention">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">机器学习2021-HW1</span>
+                        <span class="hidden-mobile">机器学习2021-CNN+Self-Attention</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -413,8 +637,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/24/%E7%94%9F%E6%B4%BB%E4%B8%8E%E6%8A%80%E6%9C%AF/9-21-%E5%8D%8E%E4%B8%BA%E5%85%A8%E8%81%94%E6%8E%A5%E5%A4%A7%E4%BC%9A/" title="9.21-华为全联接大会">
-                        <span class="hidden-mobile">9.21-华为全联接大会</span>
+                      <a href="/2024/09/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-HW1/" title="机器学习2021-HW1">
+                        <span class="hidden-mobile">机器学习2021-HW1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
