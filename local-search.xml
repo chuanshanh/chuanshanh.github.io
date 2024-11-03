@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>机器学习2021-GAN</title>
+    <link href="/2024/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-GAN/"/>
+    <url>/2024/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-GAN/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Generative-Model"><a href="#Generative-Model" class="headerlink" title="Generative Model"></a><strong>Generative Model</strong></h1><h3 id="1-Generative模型介绍"><a href="#1-Generative模型介绍" class="headerlink" title="1.Generative模型介绍"></a>1.Generative模型介绍</h3><ul><li>引入：将network当作一个生成器</li><li>输入是简单的distribution，经过network,输出复杂的distribution<ul><li>输入可以是一个已知的formulation，然后sample from it</li><li>为什么使用distribution？是为了输出的创造性，即当有相同的输入时可以有不同的输出</li></ul></li></ul><h3 id="2-GAN-生成式对抗模型"><a href="#2-GAN-生成式对抗模型" class="headerlink" title="2.GAN(生成式对抗模型)"></a>2.GAN(生成式对抗模型)</h3><ul><li>应用举例：动画人脸生成，先考虑unconditional gerneration</li><li>低维的输入通过Generator输出高维的向量，然后将输出交给另一个network（即Discriminator），输出一个scalar，数值越大表示输出越真</li><li>GAN的基本概念：<ul><li>生成器和判别器的对抗，二者不断进步</li></ul></li><li>算法：<ul><li>先初始化生成器和判别器</li><li>In each training iteration:<ul><li>step1:固定生成器，更新判别器（区分真实的和生成的）</li><li>step2:固定判别器，更新生成器（尝试骗过判别器）</li></ul></li></ul></li></ul><h3 id="3-GAN的原理"><a href="#3-GAN的原理" class="headerlink" title="3.GAN的原理"></a>3.GAN的原理</h3><ul><li><p>训练目标是什么：</p><ul><li>对于生成器，是找network里的一组参数，使得生成的数据和真实数据越相近越好</li><li>对于判别器，是找network里的一组参数，使得能够准确区分真实数据和生成的数据</li><li>数学表达：<ul><li>V(D,G) &#x3D; E[log D(x)] + E[log(1-D(G(z)))]</li><li>其中D是判别器，G是生成器，x是真实数据，z是随机噪声</li><li>判别器D的目标是最大化V(D,G)，生成器G的目标是最小化V(D,G)</li></ul></li><li>V(D,G) 本质上是一个negtive的交叉熵，相当于训练一个分类器</li></ul></li><li><p>GAN难以训练的问题：</p><ul><li>大部分情况下真实数据和生成数据几乎是不重叠的，（判别器）分类器可以很轻松的将其分开，此时，准确率或者说损失在GAN训练时是没有意义的。训练起来就很困难，需要在中途多次输出图片来查看效果</li></ul></li><li><p>解决：</p><ul><li><p>换一个衡量两个distribution的办法—WGAN：解决原始 GAN 训练不稳定和模式崩溃的问题</p></li><li><p>WGAN 使用 Wasserstein 距离来衡量真实数据分布和生成数据分布之间的差异，当真实数据和生成数据逐渐靠近时，Wasserstein距离也是逐渐变小的，便于训练</p></li><li><p>WGAN 如何解决 GAN 的问题：</p><ul><li>WGAN 的损失函数公式：</li></ul><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">max(D属于1-lipschitz,足够平滑) = E[D(x)] - E[D(G(z))]<br></code></pre></td></tr></table></figure><ul><li>其中，D 是评论家（原判别器），G 是生成器，x 是真实数据样本，z 是随机噪声。WGAN 的目标是最小化这个 Wasserstein 距离。</li><li>提供了更稳定的梯度：Wasserstein 距离在整个样本空间中都是连续和可微的</li><li>减少模式崩溃：通过使用 Wasserstein 距离，WGAN 能够更好地捕捉整个数据分布，而不是只关注某些模式</li></ul></li><li><p>WGAN 的主要改进：</p><ul><li>将判别器替换为评论家（Critic），评论家<strong>不再输出概率，而是输出一个实数</strong></li><li>使用 Wasserstein 距离作为损失函数</li><li>对评论家的权重进行裁剪，以满足 Lipschitz 连续性条件</li></ul></li></ul><h3 id="4-Tips-for-GAN"><a href="#4-Tips-for-GAN" class="headerlink" title="4.Tips for GAN:"></a>4.Tips for GAN:</h3><ul><li>GAN在文字生成任务中的挑战：<ul><li>离散性：文本是离散的，而GAN通常用于生成连续数据（如图像）</li><li>梯度传播：由于文本的离散性，难以直接进行梯度反向传播</li><li>长期依赖：文本生成需要考虑长期依赖关系，而GAN通常擅长处理局部特征</li></ul></li><li>结合强化学习（RL）的优势：<ul><li>策略梯度：RL中的策略梯度方法可以处理离散输出</li><li>奖励机制：可以设计适合文本生成的奖励函数，如BLEU分数或语义相关性</li><li>序列决策：RL擅长处理序列决策问题，适合文本生成的特性</li></ul></li></ul><h3 id="5-GAN的评价指标"><a href="#5-GAN的评价指标" class="headerlink" title="5.GAN的评价指标"></a>5.GAN的评价指标</h3><ul><li>看一张图：通过一个影像辨识系统（Classifier），如果输出的概率分布比较集中，说明生成质量比较好<ul><li>问题1：Mode Collapse，多样性很差，生成的都是接近真实数据中少部分的数据</li><li>问题2：Mode Dropping，生成的数据都只是真实数据的一部分接近（比较难解决）</li></ul></li><li>看一堆图片：通过影像辨识系统，如果分布越平坦，表示多样性越好</li><li>指标：<ul><li>Inception Score (IS)：<ul><li>衡量生成图像的质量和多样性</li><li>高IS表示生成的图像质量高且多样性好</li><li>缺点：不能很好地捕捉真实数据分布的特征，当都生成人脸，就难以判断多样性</li></ul></li><li>Fréchet Inception Distance (FID)：<ul><li>拿出最后一层隐藏层输出的向量，来计算真实图像和生成图像在特征空间中的距离，较低的FID表示生成的图像更接近真实分布</li><li>优点：能更好地反映生成图像的质量和多样性，比如人脸数量的检测</li></ul></li></ul></li></ul><h3 id="6-Conditional-GAN"><a href="#6-Conditional-GAN" class="headerlink" title="6.Conditional GAN"></a>6.Conditional GAN</h3><ul><li>增加生成器的输入，多一个x</li><li>应用举例：Text to image的监督学习，x就是文字</li><li>训练：<ul><li>生成器：学习将输入的文本向量和随机噪声映射到图片空间</li><li>判别器：区分真实图像和生成图像，并判断图像是否符合输入的文本描述</li><li>损失函数：<ul><li>对抗损失：生成器试图生成判别器认为真实的图像，而判别器则试图将生成器生成的图像标记为假的。</li><li>条件匹配损失：用于确保生成图像和文本描述相符。</li></ul></li></ul></li></ul><h3 id="7-Cycle-GAN"><a href="#7-Cycle-GAN" class="headerlink" title="7.Cycle GAN"></a>7.Cycle GAN</h3><ul><li>无监督学习，没有匹配的数据</li><li>应用举例：图像风格迁移</li><li>核心思想：循环一致性<strong>（Cycle Consistency）</strong>。它使用了两个生成器和两个判别器来实现风格迁移，并保证转换前后的图像内容一致性。</li></ul><ol><li><p>生成器G和F</p><p>：CycleGAN包含两个生成器，分别用于实现不同风格的映射：</p><ul><li><strong>生成器 G</strong>：将图像从风格域X映射到风格域Y（例如，将普通照片转换为油画风格）。</li><li><strong>生成器 F</strong>：将图像从风格域Y映射回风格域X（例如，将油画风格图像转换回普通照片风格）。</li></ul></li><li><p>判别器DX和DY</p><p>：CycleGAN还包含两个判别器：</p><ul><li><strong>判别器 DX</strong>：用于判断图像是否属于风格域X（即区分普通照片和生成的照片）。</li><li><strong>判别器 DY</strong>：用于判断图像是否属于风格域Y（即区分真实油画风格图像和生成的油画风格图像）。</li></ul></li></ol><ul><li>其他应用：<ul><li>文字风格转换，无监督的摘要，翻译，语音转文字</li></ul></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>机器学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>机器学习2021-Transformer</title>
     <link href="/2024/10/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-Transformer/"/>
     <url>/2024/10/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02021-Transformer/</url>
